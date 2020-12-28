@@ -1,0 +1,701 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DADB9CA1259AA722000C1ABB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CA0259AA722000C1ABB /* Tests_iOS.swift */; };
+		DADB9CAC259AA722000C1ABB /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CAB259AA722000C1ABB /* Tests_macOS.swift */; };
+		DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */; };
+		DADB9CAF259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */; };
+		DADB9CB0259AA722000C1ABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C86259AA721000C1ABB /* ContentView.swift */; };
+		DADB9CB1259AA722000C1ABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C86259AA721000C1ABB /* ContentView.swift */; };
+		DADB9CB2259AA722000C1ABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DADB9C87259AA722000C1ABB /* Assets.xcassets */; };
+		DADB9CB3259AA722000C1ABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DADB9C87259AA722000C1ABB /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DADB9C9D259AA722000C1ABB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DADB9C80259AA721000C1ABB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DADB9C8B259AA722000C1ABB;
+			remoteInfo = "Simply Good Habits (iOS)";
+		};
+		DADB9CA8259AA722000C1ABB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DADB9C80259AA721000C1ABB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DADB9C93259AA722000C1ABB;
+			remoteInfo = "Simply Good Habits (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simply_Good_HabitsApp.swift; sourceTree = "<group>"; };
+		DADB9C86259AA721000C1ABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DADB9C87259AA722000C1ABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DADB9C8C259AA722000C1ABB /* Simply Good Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simply Good Habits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADB9C8F259AA722000C1ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADB9C94259AA722000C1ABB /* Simply Good Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simply Good Habits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADB9C96259AA722000C1ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADB9C97259AA722000C1ABB /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		DADB9C9C259AA722000C1ABB /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADB9CA0259AA722000C1ABB /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		DADB9CA2259AA722000C1ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADB9CA7259AA722000C1ABB /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADB9CAB259AA722000C1ABB /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		DADB9CAD259AA722000C1ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DADB9C89259AA722000C1ABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9C91259AA722000C1ABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9C99259AA722000C1ABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9CA4259AA722000C1ABB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DADB9C7F259AA721000C1ABB = {
+			isa = PBXGroup;
+			children = (
+				DADB9C84259AA721000C1ABB /* Shared */,
+				DADB9C8E259AA722000C1ABB /* iOS */,
+				DADB9C95259AA722000C1ABB /* macOS */,
+				DADB9C9F259AA722000C1ABB /* Tests iOS */,
+				DADB9CAA259AA722000C1ABB /* Tests macOS */,
+				DADB9C8D259AA722000C1ABB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DADB9C84259AA721000C1ABB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */,
+				DADB9C86259AA721000C1ABB /* ContentView.swift */,
+				DADB9C87259AA722000C1ABB /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DADB9C8D259AA722000C1ABB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DADB9C8C259AA722000C1ABB /* Simply Good Habits.app */,
+				DADB9C94259AA722000C1ABB /* Simply Good Habits.app */,
+				DADB9C9C259AA722000C1ABB /* Tests iOS.xctest */,
+				DADB9CA7259AA722000C1ABB /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DADB9C8E259AA722000C1ABB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DADB9C8F259AA722000C1ABB /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		DADB9C95259AA722000C1ABB /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				DADB9C96259AA722000C1ABB /* Info.plist */,
+				DADB9C97259AA722000C1ABB /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		DADB9C9F259AA722000C1ABB /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DADB9CA0259AA722000C1ABB /* Tests_iOS.swift */,
+				DADB9CA2259AA722000C1ABB /* Info.plist */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		DADB9CAA259AA722000C1ABB /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				DADB9CAB259AA722000C1ABB /* Tests_macOS.swift */,
+				DADB9CAD259AA722000C1ABB /* Info.plist */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DADB9C8B259AA722000C1ABB /* Simply Good Habits (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADB9CB6259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Simply Good Habits (iOS)" */;
+			buildPhases = (
+				DADB9C88259AA722000C1ABB /* Sources */,
+				DADB9C89259AA722000C1ABB /* Frameworks */,
+				DADB9C8A259AA722000C1ABB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simply Good Habits (iOS)";
+			productName = "Simply Good Habits (iOS)";
+			productReference = DADB9C8C259AA722000C1ABB /* Simply Good Habits.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DADB9C93259AA722000C1ABB /* Simply Good Habits (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADB9CB9259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Simply Good Habits (macOS)" */;
+			buildPhases = (
+				DADB9C90259AA722000C1ABB /* Sources */,
+				DADB9C91259AA722000C1ABB /* Frameworks */,
+				DADB9C92259AA722000C1ABB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simply Good Habits (macOS)";
+			productName = "Simply Good Habits (macOS)";
+			productReference = DADB9C94259AA722000C1ABB /* Simply Good Habits.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DADB9C9B259AA722000C1ABB /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADB9CBC259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				DADB9C98259AA722000C1ABB /* Sources */,
+				DADB9C99259AA722000C1ABB /* Frameworks */,
+				DADB9C9A259AA722000C1ABB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DADB9C9E259AA722000C1ABB /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = DADB9C9C259AA722000C1ABB /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		DADB9CA6259AA722000C1ABB /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADB9CBF259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				DADB9CA3259AA722000C1ABB /* Sources */,
+				DADB9CA4259AA722000C1ABB /* Frameworks */,
+				DADB9CA5259AA722000C1ABB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DADB9CA9259AA722000C1ABB /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = DADB9CA7259AA722000C1ABB /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DADB9C80259AA721000C1ABB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					DADB9C8B259AA722000C1ABB = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					DADB9C93259AA722000C1ABB = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					DADB9C9B259AA722000C1ABB = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = DADB9C8B259AA722000C1ABB;
+					};
+					DADB9CA6259AA722000C1ABB = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = DADB9C93259AA722000C1ABB;
+					};
+				};
+			};
+			buildConfigurationList = DADB9C83259AA721000C1ABB /* Build configuration list for PBXProject "Simply Good Habits" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DADB9C7F259AA721000C1ABB;
+			productRefGroup = DADB9C8D259AA722000C1ABB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DADB9C8B259AA722000C1ABB /* Simply Good Habits (iOS) */,
+				DADB9C93259AA722000C1ABB /* Simply Good Habits (macOS) */,
+				DADB9C9B259AA722000C1ABB /* Tests iOS */,
+				DADB9CA6259AA722000C1ABB /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DADB9C8A259AA722000C1ABB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADB9CB2259AA722000C1ABB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9C92259AA722000C1ABB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADB9CB3259AA722000C1ABB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9C9A259AA722000C1ABB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9CA5259AA722000C1ABB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DADB9C88259AA722000C1ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADB9CB0259AA722000C1ABB /* ContentView.swift in Sources */,
+				DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9C90259AA722000C1ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADB9CB1259AA722000C1ABB /* ContentView.swift in Sources */,
+				DADB9CAF259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9C98259AA722000C1ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADB9CA1259AA722000C1ABB /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADB9CA3259AA722000C1ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADB9CAC259AA722000C1ABB /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DADB9C9E259AA722000C1ABB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DADB9C8B259AA722000C1ABB /* Simply Good Habits (iOS) */;
+			targetProxy = DADB9C9D259AA722000C1ABB /* PBXContainerItemProxy */;
+		};
+		DADB9CA9259AA722000C1ABB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DADB9C93259AA722000C1ABB /* Simply Good Habits (macOS) */;
+			targetProxy = DADB9CA8259AA722000C1ABB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DADB9CB4259AA722000C1ABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DADB9CB5259AA722000C1ABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		DADB9CB7259AA722000C1ABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
+				PRODUCT_NAME = "Simply Good Habits";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DADB9CB8259AA722000C1ABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
+				PRODUCT_NAME = "Simply Good Habits";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DADB9CBA259AA722000C1ABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
+				PRODUCT_NAME = "Simply Good Habits";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DADB9CBB259AA722000C1ABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
+				PRODUCT_NAME = "Simply Good Habits";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DADB9CBD259AA722000C1ABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Simply Good Habits (iOS)";
+			};
+			name = Debug;
+		};
+		DADB9CBE259AA722000C1ABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Simply Good Habits (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DADB9CC0259AA722000C1ABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Simply Good Habits (macOS)";
+			};
+			name = Debug;
+		};
+		DADB9CC1259AA722000C1ABB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 35L6R57Z7R;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Simply Good Habits (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DADB9C83259AA721000C1ABB /* Build configuration list for PBXProject "Simply Good Habits" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADB9CB4259AA722000C1ABB /* Debug */,
+				DADB9CB5259AA722000C1ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADB9CB6259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Simply Good Habits (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADB9CB7259AA722000C1ABB /* Debug */,
+				DADB9CB8259AA722000C1ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADB9CB9259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Simply Good Habits (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADB9CBA259AA722000C1ABB /* Debug */,
+				DADB9CBB259AA722000C1ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADB9CBC259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADB9CBD259AA722000C1ABB /* Debug */,
+				DADB9CBE259AA722000C1ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADB9CBF259AA722000C1ABB /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADB9CC0259AA722000C1ABB /* Debug */,
+				DADB9CC1259AA722000C1ABB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DADB9C80259AA721000C1ABB /* Project object */;
+}
