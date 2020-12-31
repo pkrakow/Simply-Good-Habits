@@ -15,6 +15,8 @@
 		DADB9CB1259AA722000C1ABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C86259AA721000C1ABB /* ContentView.swift */; };
 		DADB9CB2259AA722000C1ABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DADB9C87259AA722000C1ABB /* Assets.xcassets */; };
 		DADB9CB3259AA722000C1ABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DADB9C87259AA722000C1ABB /* Assets.xcassets */; };
+		DAF45688259D7C970067345D /* CustomButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF45687259D7C970067345D /* CustomButtonStyles.swift */; };
+		DAF45689259D7C970067345D /* CustomButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF45687259D7C970067345D /* CustomButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		DADB9CA7259AA722000C1ABB /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADB9CAB259AA722000C1ABB /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		DADB9CAD259AA722000C1ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAF45687259D7C970067345D /* CustomButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 				DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */,
 				DADB9C86259AA721000C1ABB /* ContentView.swift */,
 				DADB9C87259AA722000C1ABB /* Assets.xcassets */,
+				DAF45687259D7C970067345D /* CustomButtonStyles.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -310,6 +314,7 @@
 			files = (
 				DADB9CB0259AA722000C1ABB /* ContentView.swift in Sources */,
 				DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
+				DAF45688259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +324,7 @@
 			files = (
 				DADB9CB1259AA722000C1ABB /* ContentView.swift in Sources */,
 				DADB9CAF259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
+				DAF45689259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
