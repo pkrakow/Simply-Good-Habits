@@ -56,7 +56,9 @@ struct FilledRoundedCornerButtonStyle: ButtonStyle {
     }
 }
 
-
+/*
+ 
+// Issue with UIColor when the build target is MacOS
 struct SpecialButtonStyle: ButtonStyle {
     enum Action {
         case confirm, cancel, delete
@@ -119,4 +121,4 @@ struct SpecialButtonStyle: ButtonStyle {
             .opacity(configuration.isPressed ? 0.6 : 1.0)
     }
 }
-
+*/

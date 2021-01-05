@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State var habitCount = 0
+    @State var yesterdayHabitCount = 0
+    @State var habitDictionary = [Date:Int]()
     let habitTarget = 5
     
     var body: some View {
@@ -25,8 +27,25 @@ struct ContentView: View {
     }
     
     func incrementHabitCount() -> Void {
-        habitCount += 1
+        // Lookup what year, month and day it is right now
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let today = formatter.string(from: Date())
+
+        
+        // Lookup the latest entry in the habitDictionary
+        let latestHabitDictionaryEntry = habitDictionary.max { a, b in a.key < b.key }
+        let dayOfLastEntry = formatter.string(from: latestHabitDictionaryEntry?.key ?? Date())
+        
+        // Check if it was from a day other than today
+        if dayOfLastEntry != today {
+            habitCount = 1
+        } else {
+            habitCount += 1
+        }
+        habitDictionary[Date()] = 1
         //print("habitCount \(habitCount)")
+        //print("habitDictionary: \(habitDictionary)")
     }
     
 }
