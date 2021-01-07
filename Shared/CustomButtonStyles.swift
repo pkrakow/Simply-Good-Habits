@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+// Quick check for which platform we're building for - since they support different Color objects
+#if os(iOS)
+    typealias XColor = UIColor
+#elseif os(OSX)
+    typealias XColor = NSColor
+#endif
+
 struct DynamicRoundButtonStyle: ButtonStyle {
     var font: Font = .largeTitle
     var padding: CGFloat = 8
@@ -27,6 +34,94 @@ struct DynamicRoundButtonStyle: ButtonStyle {
     }
 }
 
+struct DoMoreDoLessUndoButtonStyle: ButtonStyle {
+    enum Action {
+        case doMore, doLess, undo
+        var fgColor: Color {
+            switch self {
+            case .doMore:
+                return Color(XColor.white)
+            case .doLess:
+                return Color(XColor.white)
+            case .undo:
+                return Color(XColor.white)
+            }
+        }
+        
+        var bgColor: Color {
+            switch self {
+            case .doMore:
+                return Color(XColor.systemGreen)
+            case .doLess:
+                return Color(XColor.systemYellow)
+            case .undo:
+                return Color(XColor.systemGray)
+            }
+        }
+        
+        var image: Image {
+            switch self {
+            case .doMore:
+                return Image(systemName: "plus.square.fill")
+            case .doLess:
+                return Image(systemName: "minus.square" )
+            case .undo:
+                return Image(systemName: "arrow.uturn.backward.circle")
+            }
+        }
+        
+        var doMoreImage: Image {
+            switch self {
+            case .doMore:
+                return Image(systemName: "plus.square.fill")
+            case .doLess:
+                return Image(systemName: "minus.square" )
+            case .undo:
+                return Image(systemName: "arrow.uturn.backward.circle")
+            }
+        }
+        
+        var doLessImage: Image {
+            switch self {
+            case .doMore:
+                return Image(systemName: "plus.square")
+            case .doLess:
+                return Image(systemName: "minus.square.fill" )
+            case .undo:
+                return Image(systemName: "arrow.uturn.backward.circle")
+            }
+        }
+        
+    }
+    var actionType: Action
+    var withImage: Bool = true
+    var moreOrLess: Bool = true
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            if withImage{
+                //actionType.image
+                if moreOrLess {
+                    actionType.doMoreImage
+                } else {
+                    actionType.doLessImage
+                }
+            }
+            configuration.label
+        }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .fill(actionType.bgColor)
+                    .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .stroke(Color.black))
+            )
+            .foregroundColor(actionType.fgColor)
+            .font(Font.bold(.body)())
+            .opacity(configuration.isPressed ? 0.6 : 1.0)
+    }
+}
+
+/*
 struct RoundButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -56,25 +151,25 @@ struct FilledRoundedCornerButtonStyle: ButtonStyle {
     }
 }
 
-/*
+*/
  
-// Issue with UIColor when the build target is MacOS
+
 struct SpecialButtonStyle: ButtonStyle {
     enum Action {
         case confirm, cancel, delete
         var bgColor: Color {
             switch self {
             case .confirm:
-                return Color(UIColor.systemGreen)
+                return Color(XColor.systemGreen)
             case .cancel:
-                return Color(UIColor.systemBackground)
+                return Color(XColor.systemRed)
             case .delete:
-                return Color(UIColor.systemRed)
+                return Color(XColor.systemRed)
             }
         }
         var fgColor: Color {
             if self == .cancel {
-                return Color(UIColor.label)
+                return Color(XColor.black)
             } else {
                 return Color.white
             }
@@ -121,4 +216,4 @@ struct SpecialButtonStyle: ButtonStyle {
             .opacity(configuration.isPressed ? 0.6 : 1.0)
     }
 }
-*/
+

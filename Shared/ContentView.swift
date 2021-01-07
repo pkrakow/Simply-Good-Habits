@@ -12,7 +12,14 @@ struct ContentView: View {
     @State var habitCount = 0
     @State var yesterdayHabitCount = 0
     @State var habitDictionary = [Date:Int]()
+    @State var moreOrLess = true
+    @State var yesterdaysHabitCount = 0
     let habitTarget = 5
+    
+
+
+    // After that, build out the logic to change the button color based on the previous target
+    
     
     var body: some View {
         VStack {
@@ -23,15 +30,32 @@ struct ContentView: View {
                 label: { Text("\(habitCount)") }
             )
             .buttonStyle(DynamicRoundButtonStyle())
+            HStack {
+                Button(
+                    action: { moreOrLess = true },
+                    label: { Text("doMore") }
+                ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: moreOrLess))
+                Button(
+                    action: { moreOrLess = false },
+                    label: { Text("doLess") }
+                        )
+                .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
+                Spacer()
+                Button(
+                    action: { decrementHabitCount() },
+                    label: { Text("Undo") }
+                )
+                .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .undo))
+            }.padding()
         }
     }
     
-    func incrementHabitCount() -> Void {
+    
+    func newDayDetector() -> Bool {
         // Lookup what year, month and day it is right now
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let today = formatter.string(from: Date())
-
         
         // Lookup the latest entry in the habitDictionary
         let latestHabitDictionaryEntry = habitDictionary.max { a, b in a.key < b.key }
@@ -39,6 +63,17 @@ struct ContentView: View {
         
         // Check if it was from a day other than today
         if dayOfLastEntry != today {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func incrementHabitCount() -> Void {
+        
+        // Check if it was from a day other than today
+        if newDayDetector() {
+            yesterdaysHabitCount = habitCount
             habitCount = 1
         } else {
             habitCount += 1
@@ -48,8 +83,26 @@ struct ContentView: View {
         //print("habitDictionary: \(habitDictionary)")
     }
     
-}
+    func decrementHabitCount() -> Void {
+        
+        // Check if it was from a day other than today
+        if newDayDetector() {
+            yesterdaysHabitCount = habitCount
+            habitCount = 0
+        } else {
+            if habitCount > 0 {
+                habitCount -= 1
+                habitDictionary[Date()] = -1
+            } else {
+                habitCount = 0
+            }
+        }
 
+        //print("habitCount \(habitCount)")
+        //print("habitDictionary: \(habitDictionary)")
+    }
+    
+}
 
 
 
