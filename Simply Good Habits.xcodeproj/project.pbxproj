@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
+		DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
+		DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
+		DAB00FC425AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
 		DADB9CA1259AA722000C1ABB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CA0259AA722000C1ABB /* Tests_iOS.swift */; };
 		DADB9CAC259AA722000C1ABB /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CAB259AA722000C1ABB /* Tests_macOS.swift */; };
 		DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */; };
@@ -37,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DAB00F3A25AB7B250016E7DB /* SimplyGoodHabits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimplyGoodHabits.xcdatamodel; sourceTree = "<group>"; };
+		DAB00FC225AB7BE10016E7DB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simply_Good_HabitsApp.swift; sourceTree = "<group>"; };
 		DADB9C86259AA721000C1ABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DADB9C87259AA722000C1ABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +111,8 @@
 				DADB9C86259AA721000C1ABB /* ContentView.swift */,
 				DADB9C87259AA722000C1ABB /* Assets.xcassets */,
 				DAF45687259D7C970067345D /* CustomButtonStyles.swift */,
+				DAB00FC225AB7BE10016E7DB /* Persistence.swift */,
+				DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -315,6 +323,8 @@
 				DADB9CB0259AA722000C1ABB /* ContentView.swift in Sources */,
 				DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
 				DAF45688259D7C970067345D /* CustomButtonStyles.swift in Sources */,
+				DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,
+				DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +335,8 @@
 				DADB9CB1259AA722000C1ABB /* ContentView.swift in Sources */,
 				DADB9CAF259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
 				DAF45689259D7C970067345D /* CustomButtonStyles.swift in Sources */,
+				DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,
+				DAB00FC425AB7BE10016E7DB /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +714,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DAB00F3A25AB7B250016E7DB /* SimplyGoodHabits.xcdatamodel */,
+			);
+			currentVersion = DAB00F3A25AB7B250016E7DB /* SimplyGoodHabits.xcdatamodel */;
+			path = Simply_Good_Habits.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DADB9C80259AA721000C1ABB /* Project object */;
 }
