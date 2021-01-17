@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA32AAA725B4D5A4001D82DF /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32AAA625B4D5A4001D82DF /* PlaySound.swift */; };
+		DA32AAA825B4D5A4001D82DF /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32AAA625B4D5A4001D82DF /* PlaySound.swift */; };
+		DA32AAAE25B4D5DC001D82DF /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32AAAD25B4D5DC001D82DF /* Haptics.swift */; };
+		DA32AAAF25B4D5DC001D82DF /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32AAAD25B4D5DC001D82DF /* Haptics.swift */; };
+		DA32AAB525B4D704001D82DF /* Bell-Tree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */; };
+		DA32AAB625B4D704001D82DF /* Bell-Tree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */; };
 		DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
@@ -41,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA32AAA625B4D5A4001D82DF /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		DA32AAAD25B4D5DC001D82DF /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bell-Tree.mp3"; sourceTree = "<group>"; };
 		DAB00F3A25AB7B250016E7DB /* SimplyGoodHabits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimplyGoodHabits.xcdatamodel; sourceTree = "<group>"; };
 		DAB00FC225AB7BE10016E7DB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simply_Good_HabitsApp.swift; sourceTree = "<group>"; };
@@ -110,9 +119,12 @@
 				DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */,
 				DADB9C86259AA721000C1ABB /* ContentView.swift */,
 				DADB9C87259AA722000C1ABB /* Assets.xcassets */,
+				DA32AAAD25B4D5DC001D82DF /* Haptics.swift */,
 				DAF45687259D7C970067345D /* CustomButtonStyles.swift */,
 				DAB00FC225AB7BE10016E7DB /* Persistence.swift */,
 				DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */,
+				DA32AAA625B4D5A4001D82DF /* PlaySound.swift */,
+				DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -288,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADB9CB2259AA722000C1ABB /* Assets.xcassets in Resources */,
+				DA32AAB525B4D704001D82DF /* Bell-Tree.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADB9CB3259AA722000C1ABB /* Assets.xcassets in Resources */,
+				DA32AAB625B4D704001D82DF /* Bell-Tree.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +334,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA32AAAE25B4D5DC001D82DF /* Haptics.swift in Sources */,
 				DADB9CB0259AA722000C1ABB /* ContentView.swift in Sources */,
+				DA32AAA725B4D5A4001D82DF /* PlaySound.swift in Sources */,
 				DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
 				DAF45688259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 				DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,
@@ -332,7 +348,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA32AAAF25B4D5DC001D82DF /* Haptics.swift in Sources */,
 				DADB9CB1259AA722000C1ABB /* ContentView.swift in Sources */,
+				DA32AAA825B4D5A4001D82DF /* PlaySound.swift in Sources */,
 				DADB9CAF259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
 				DAF45689259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 				DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,

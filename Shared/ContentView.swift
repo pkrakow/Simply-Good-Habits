@@ -39,7 +39,7 @@ struct ContentView: View {
             Text("Simply Good Habits")
                 .font(.largeTitle)
             Button(
-                action: { incrementHabitCount() },
+                action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
                 //label: { Text("\(habitCount)") }
                 label: { Text("\((habits.first?.count ?? 0))") }
             )
