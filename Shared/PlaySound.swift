@@ -17,8 +17,7 @@ func playSound(sound: String, type: String) {
             audioPlayer?.play()
             
         } catch {
-        print("ERROR: Could not find and play that audio file")
-            
+            print("ERROR: Could not find and play that audio file")
         }
     }
 }
@@ -26,18 +25,18 @@ func playSound(sound: String, type: String) {
 // High-pitched peep
 func playKeyPressedOne() {
     AudioServicesPlaySystemSound(1103)
-    print("playKeyPressedOne")
+    //print("playKeyPressedOne")
 }
 
 
 // Normal tock sound
 func playKeyPressedTwo() {
     AudioServicesPlaySystemSound(1104)
-    print("playKeyPressedTwo")
+    //print("playKeyPressedTwo")
 }
 
 // Normal tick sound
 func playKeyPressedThree() {
     AudioServicesPlaySystemSound(1105)
-    print("playKeyPressedThree")
+    //print("playKeyPressedThree")
 }
