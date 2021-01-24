@@ -14,27 +14,6 @@
 import SwiftUI
 import CoreData
 
-// Welcome View that shows the first time a user opens the app
-struct WelcomeView: View {
-    var body: some View {
-        VStack {
-            Text("Simply Good Habits")
-                .font(.largeTitle)
-                .underline()
-                .padding()
-            Text("Welcome to a simple app that helps you build good daily habits.")
-            Text("To get started, please fill out this little survey on the habit you would like to work on:")
-            /*
-             // UPDATE SOON: Add a form to setup the new habit
-             // and add nav to go to the ContentView
-            GroupBox(label: firstNewHabit) {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
-            }
-             */
-        }
-    }
-}
-
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var selection: String? = nil
@@ -181,8 +160,9 @@ struct ContentView: View {
         }
     }
     
+    
     // Save habits to CoreData
-    func saveContext() {
+    public func saveContext() {
       do {
         try viewContext.save()
       } catch {
@@ -191,7 +171,7 @@ struct ContentView: View {
     }
     
     // Add a new habit
-    func addHabit(uuid: UUID, creationDate: Date, name: String, moreOrLess: Bool,  target: Int64, count: Int64) {
+    public func addHabit(uuid: UUID, creationDate: Date, name: String, moreOrLess: Bool,  target: Int64, count: Int64) {
         // Create a newHabit object
         let newHabit = Habit(context: viewContext)
         
@@ -208,7 +188,7 @@ struct ContentView: View {
     }
     
     // Delete a habit
-    func deleteHabit(at offsets: IndexSet) {
+    public func deleteHabit(at offsets: IndexSet) {
         // Go through the CoreData index to find and delete the specific habit
         offsets.forEach { index in
             let habit = self.habits[index]

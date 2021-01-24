@@ -17,6 +17,8 @@
 		DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
 		DAB00FC425AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
+		DADB2D1225BCCD9B006BBAA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */; };
+		DADB2D1325BCCD9B006BBAA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */; };
 		DADB9CA1259AA722000C1ABB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CA0259AA722000C1ABB /* Tests_iOS.swift */; };
 		DADB9CAC259AA722000C1ABB /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CAB259AA722000C1ABB /* Tests_macOS.swift */; };
 		DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */; };
@@ -52,6 +54,7 @@
 		DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bell-Tree.mp3"; sourceTree = "<group>"; };
 		DAB00F3A25AB7B250016E7DB /* SimplyGoodHabits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimplyGoodHabits.xcdatamodel; sourceTree = "<group>"; };
 		DAB00FC225AB7BE10016E7DB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simply_Good_HabitsApp.swift; sourceTree = "<group>"; };
 		DADB9C86259AA721000C1ABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DADB9C87259AA722000C1ABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 			children = (
 				DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */,
 				DADB9C86259AA721000C1ABB /* ContentView.swift */,
+				DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */,
 				DADB9C87259AA722000C1ABB /* Assets.xcassets */,
 				DA32AAAD25B4D5DC001D82DF /* Haptics.swift */,
 				DAF45687259D7C970067345D /* CustomButtonStyles.swift */,
@@ -337,6 +341,7 @@
 				DA32AAAE25B4D5DC001D82DF /* Haptics.swift in Sources */,
 				DADB9CB0259AA722000C1ABB /* ContentView.swift in Sources */,
 				DA32AAA725B4D5A4001D82DF /* PlaySound.swift in Sources */,
+				DADB2D1225BCCD9B006BBAA4 /* WelcomeView.swift in Sources */,
 				DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
 				DAF45688259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 				DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,
@@ -351,6 +356,7 @@
 				DA32AAAF25B4D5DC001D82DF /* Haptics.swift in Sources */,
 				DADB9CB1259AA722000C1ABB /* ContentView.swift in Sources */,
 				DA32AAA825B4D5A4001D82DF /* PlaySound.swift in Sources */,
+				DADB2D1325BCCD9B006BBAA4 /* WelcomeView.swift in Sources */,
 				DADB9CAF259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
 				DAF45689259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 				DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,
