@@ -5,7 +5,9 @@
 //  Created by Paul on 1/17/21.
 //
 
+
 import UIKit
+
 
 let impact = UIImpactFeedbackGenerator() // 1
 
@@ -32,4 +34,7 @@ func warningPressed(_ sender: Any) {
 func errorPressed(_ sender: Any) {
     notification.notificationOccurred(.error)
 }
+
+
+
 

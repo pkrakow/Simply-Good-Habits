@@ -17,7 +17,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var selection: String? = nil
-
+    
     // Retrieve stored habits from CoreData
     @FetchRequest(
         entity: Habit.entity(),
@@ -28,14 +28,7 @@ struct ContentView: View {
         ]
     ) var habits: FetchedResults<Habit>
     
-    // UPDATE SOON: Get rid of these state values
-    // Data for this view controller
-    @State var habitCount: Int64 = 0
-    @State var yesterdayHabitCount = 0
-    @State var habitDictionary = [Date:Int]()
-    @State var moreOrLess = true
 
-    
     // Primary view for the app
     var body: some View {
         NavigationView {
@@ -51,17 +44,19 @@ struct ContentView: View {
                 )
                 .buttonStyle(DynamicRoundButtonStyle())
                 HStack {
+                    /*
                     Button(
                         //action: { moreOrLess = true },
                         action: { habits.first?.moreOrLess = true},
                         label: { Text("doMore") }
-                    ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: true))
+                    ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: habits.first?.moreOrLess ?? true))
                     Button(
                         //action: { moreOrLess = false },
                         action: { habits.first?.moreOrLess = false},
                         label: { Text("doLess") }
                             )
-                    .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: false))
+                    .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: habits.first?.moreOrLess ?? false))
+                    */
                     Spacer()
                     Button(
                         action: { decrementHabitCount() },
@@ -74,6 +69,7 @@ struct ContentView: View {
             .navigationBarTitle("")
             .navigationBarHidden(true)
         }
+        .environment(\.managedObjectContext, viewContext)
 
         
         // When the app loads
@@ -88,15 +84,10 @@ struct ContentView: View {
             {
                 //print("First Use")
                 // Create the first Habit entity in CoreData
-                // UPDATE NOW: Replace this code with code that navigates to a view to setup the first habit
-                addHabit(uuid: UUID(), creationDate: Date(), name: "placeholder", moreOrLess: moreOrLess, target: 0, count: 0)
-                saveContext()
-                // Need to debug this - we are reaching this code but the view isn't changing
+                // Navigate to the WelcomeView to let the user setup the first good habit
                 self.selection = "Welcome"
-                //print("Welcome Fired")
-                //addHabit(uuid: UUID(), creationDate: Date(), name: "placeholder1", moreOrLess: moreOrLess, target: 1, count: 1)
             }
-            //print(habits.first?.name)
+            //print(habits.first?.name ?? "empty name field")
             
             // Check if it is a new day, and if so, setup the app for the new day
             if newDayDetector() {
@@ -104,7 +95,6 @@ struct ContentView: View {
             }
             
         }
-        
         // When the app moves to the foreground
         .onReceive(NotificationCenter.default.publisher(for:
             UIApplication.willEnterForegroundNotification)) { _ in
