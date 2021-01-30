@@ -18,6 +18,7 @@ struct DynamicRoundButtonStyle: ButtonStyle {
     var font: Font = .largeTitle
     var padding: CGFloat = 8
     var bgColor = Color.green
+    //var bgColor : Color
     var fgColor = Color.white
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label

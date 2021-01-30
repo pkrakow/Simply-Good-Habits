@@ -8,6 +8,7 @@
 
 // TODO Notes
 // Search through all UPDATE comments
+// The app is locked in portrait mode because there were issues with landscape mode
 // Upgrade to use iCloud to persist results across devices
 // After that, build out the logic to change the button color based on the previous target
 
@@ -39,24 +40,12 @@ struct ContentView: View {
                     .underline()
                 Button(
                     action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
-                    //label: { Text("\(habitCount)") }
                     label: { Text("\((habits.first?.count ?? 0))") }
                 )
                 .buttonStyle(DynamicRoundButtonStyle())
+                .font(.largeTitle)
                 HStack {
-                    /*
-                    Button(
-                        //action: { moreOrLess = true },
-                        action: { habits.first?.moreOrLess = true},
-                        label: { Text("doMore") }
-                    ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: habits.first?.moreOrLess ?? true))
-                    Button(
-                        //action: { moreOrLess = false },
-                        action: { habits.first?.moreOrLess = false},
-                        label: { Text("doLess") }
-                            )
-                    .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: habits.first?.moreOrLess ?? false))
-                    */
+                    Text("Target \(Text(habits.first?.moreOrLess ?? true ? ">=" : "<=")) \(habits.first?.target ?? 0)")
                     Spacer()
                     Button(
                         action: { decrementHabitCount() },
@@ -82,7 +71,7 @@ struct ContentView: View {
             // Check if this is the first time the app has been used
             if habits.count == 0
             {
-                //print("First Use")
+                print("First Use")
                 // Create the first Habit entity in CoreData
                 // Navigate to the WelcomeView to let the user setup the first good habit
                 self.selection = "Welcome"
@@ -150,6 +139,9 @@ struct ContentView: View {
         }
     }
     
+    func updateButtonColor() {
+        
+    }
     
     // Save habits to CoreData
     public func saveContext() {
