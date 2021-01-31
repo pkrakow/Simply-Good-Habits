@@ -10,7 +10,6 @@
 // Search through all UPDATE comments
 // The app is locked in portrait mode because there were issues with landscape mode
 // Upgrade to use iCloud to persist results across devices
-// After that, build out the logic to change the button color based on the previous target
 
 import SwiftUI
 import CoreData
@@ -42,7 +41,7 @@ struct ContentView: View {
                     action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
                     label: { Text("\((habits.first?.count ?? 0))") }
                 )
-                .buttonStyle(DynamicRoundButtonStyle())
+                .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
                 .font(.largeTitle)
                 HStack {
                     Text("Target \(Text(habits.first?.moreOrLess ?? true ? ">=" : "<=")) \(habits.first?.target ?? 0)")
@@ -59,13 +58,8 @@ struct ContentView: View {
             .navigationBarHidden(true)
         }
         .environment(\.managedObjectContext, viewContext)
-
-        
         // When the app loads
         .onAppear() {
-            //print(habits)
-            //print(habits.count)
-            //print(habits.isEmpty)
             //print("onAppear Fired")
             
             // Check if this is the first time the app has been used
@@ -76,7 +70,6 @@ struct ContentView: View {
                 // Navigate to the WelcomeView to let the user setup the first good habit
                 self.selection = "Welcome"
             }
-            //print(habits.first?.name ?? "empty name field")
             
             // Check if it is a new day, and if so, setup the app for the new day
             if newDayDetector() {
@@ -87,9 +80,6 @@ struct ContentView: View {
         // When the app moves to the foreground
         .onReceive(NotificationCenter.default.publisher(for:
             UIApplication.willEnterForegroundNotification)) { _ in
-            //print(habits)
-            //print(habits.count)
-            //print(habits.isEmpty)
             
             // Check if it is a new day, and if so, setup the app for the new day
             if newDayDetector() {
@@ -139,8 +129,35 @@ struct ContentView: View {
         }
     }
     
-    func updateButtonColor() {
+    // Change the button color to reflect how the habit.count relates to the habit.target
+    func updateButtonColor() -> Color {
+        let updateCount = Double(habits.first?.count ?? 0)
+        var updateTarget = Double(habits.first?.target ?? 0)
+        // Safety net to protect against NaN scenarios and negative targets
+        if (updateTarget < 0.001) {
+            updateTarget = 0.001
+        }
+        let updateMore = min((updateCount/updateTarget)/2,0.5)
+        let updateLessA = min((updateCount/updateTarget)/2,1)
+        var updateLessB : Double
         
+        // Logic to generate updateLessB
+        if (updateCount <= updateTarget) {
+            updateLessB = 0
+        } else {
+            updateLessB = min((updateCount - updateTarget)/updateTarget, 1)
+        }
+        var updateColor = Color.gray
+
+        // If the user is trying to do something more:
+        if habits.first?.moreOrLess ?? true {
+            // Transition from grey (0) to green (target)
+            updateColor = Color(red: (0.5 - updateMore), green: (0.5 + updateMore), blue: (0.5 - updateMore), opacity: 1)
+        } else {
+            // If the user is trying to do something less, transition from green to yellow to red (@2x the target)
+            updateColor = Color(red: updateLessA, green: (1 - updateLessB), blue: 0, opacity: 1)
+        }
+        return updateColor
     }
     
     // Save habits to CoreData
@@ -182,26 +199,6 @@ struct ContentView: View {
     }
     
 }
-
-
-
-/*
-struct Color {
-    let red, green, blue: Double
-    init(red: Double, green: Double, blue: Double) {
-        self.red   = red
-        self.green = green
-        self.blue  = blue
-    }
-    init(white: Double) {
-        red   = white
-        green = white
-        blue  = white
-    }
-}
-
-let karl = Color(red: 1.0, green: 0.0, blue: 1.0)
-*/
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
