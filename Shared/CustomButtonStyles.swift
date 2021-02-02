@@ -34,7 +34,11 @@ struct DynamicRoundButtonStyle: ButtonStyle {
     }
 }
 
-
+extension Color {
+    static let neuBackground = Color(red: 0.941, green: 0.941, blue: 0.953, opacity: 1)
+    static let dropShadow = Color(red: 0.682, green: 0.682, blue: 0.753, opacity: 0.4)
+    static let dropLight = Color(red: 1, green: 1, blue: 1, opacity: 1)
+}
 
 struct DoMoreDoLessUndoButtonStyle: ButtonStyle {
     enum Action {

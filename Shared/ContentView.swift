@@ -37,12 +37,15 @@ struct ContentView: View {
                 Text("Simply Good Habits")
                     .font(.largeTitle)
                     .underline()
+                NavigationLink(habits.first?.name ?? "First Good Habit", destination: EditView(), tag: "Edit", selection: $selection)
                 Button(
                     action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
                     label: { Text("\((habits.first?.count ?? 0))") }
                 )
                 .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
                 .font(.largeTitle)
+                .shadow(color: .dropShadow, radius: 15, x: 10, y: 10)
+                .shadow(color: .dropLight, radius: 15, x: -10, y: -10)
                 HStack {
                     Text("Target \(Text(habits.first?.moreOrLess ?? true ? ">=" : "<=")) \(habits.first?.target ?? 0)")
                     Spacer()
