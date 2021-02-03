@@ -40,44 +40,49 @@ struct EditView: View {
         ]
     ) var habits: FetchedResults<Habit>
     
-    // The WelcomeView objects
+    // The EditView objects
     var body: some View {
         VStack {
             Text("Simply Good Habits")
                 .font(.largeTitle)
                 .underline()
-                .padding()
-            Text("If you'd like to change your good habit, you can do it here:")
+            Text("Edit your good habit here:")
             Spacer()
-            TextField("What is your good habit?", text: $habitName)
-                .font(.title)
-            TextField("What's your daily target?", text: $target)
-                .keyboardType(.numberPad)
-                .onReceive(Just(target)) { newValue in
-                    let filtered = newValue.filter { "0123456789".contains($0) }
-                    if filtered != newValue {
-                        self.target = filtered
+            HStack {
+                Text("Name:")
+                TextField("What is your good habit?", text: $habitName)
+            }
+            .padding()
+
+            HStack {
+                Text("Target:")
+                TextField("What's your daily target?", text: $target)
+                    .keyboardType(.numberPad)
+                    .onReceive(Just(target)) { newValue in
+                        let filtered = newValue.filter { "0123456789".contains($0) }
+                        if filtered != newValue {
+                            self.target = filtered
                     }
                 }
-                .font(.title)
+            }
+            .padding()
 
             VStack {
-                Text("Do you want to work on doing things...")
-                    .foregroundColor(.gray)
-                    .font(.title)
+                Text("Do this:")
+
                 HStack {
                     Button(
                         action: { moreOrLess = true},
-                        label: { Text("...more often") }
+                        label: { Text("More Often") }
                     ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: moreOrLess))
                     Button(
                         action: { moreOrLess = false},
-                        label: { Text("...less often") }
-                            )
+                        label: { Text("Less Often") }
+                    )
                     .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
-                    Spacer()
-                }.padding()
+                }
             }
+            .padding()
             Spacer()
             Button(
                 action: { fillInTheBlanks(); self.presentationMode.wrappedValue.dismiss() },
