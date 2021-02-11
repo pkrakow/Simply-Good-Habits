@@ -10,6 +10,7 @@
 import SwiftUI
 import CoreData
 import Combine
+import NavigationStack
 
 // Welcome View that shows the first time a user opens the app
 struct EditView: View {
@@ -18,7 +19,7 @@ struct EditView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     // This will let me dismiss the view when the user hits the confirmation button
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var navStack: NavigationStack
     
     // Variables to hold the data collected in the form
     @State var uuid: UUID = UUID()
@@ -85,7 +86,7 @@ struct EditView: View {
             .padding()
             Spacer()
             Button(
-                action: { fillInTheBlanks(); self.presentationMode.wrappedValue.dismiss() },
+                action: { fillInTheBlanks(); self.navStack.pop() },
                 label: { Text("Go back to building good habits") }
             )
             .buttonStyle(SpecialButtonStyle(actionType: .confirm))

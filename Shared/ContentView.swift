@@ -7,12 +7,13 @@
 
 
 // TODO Notes
-// Search through all UPDATE comments
 // The app is locked in portrait mode because there were issues with landscape mode
-// Upgrade to use iCloud to persist results across devices
+
 
 import SwiftUI
 import CoreData
+import NavigationStack
+
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -28,18 +29,17 @@ struct ContentView: View {
         ]
     ) var habits: FetchedResults<Habit>
     
-
-    // Primary view for the app
     var body: some View {
-        NavigationView {
+        NavigationStackView {
             VStack {
-                NavigationLink(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
+                PushView(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
                 Text("Simply Good Habits")
                     .font(.largeTitle)
                     .underline()
-                NavigationLink(habits.first?.name ?? "First Good Habit", destination: EditView(), tag: "Edit", selection: $selection)
+                PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
                 Button(
                     action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
+                    //action: {},
                     label: { Text("\((habits.first?.count ?? 0))") }
                 )
                 .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
@@ -51,14 +51,12 @@ struct ContentView: View {
                     Spacer()
                     Button(
                         action: { decrementHabitCount() },
+                        //action: {},
                         label: { Text("Undo") }
                     )
                     .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .undo))
                 }.padding()
             }
-            // Hide the navigation bar
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
         }
         .environment(\.managedObjectContext, viewContext)
         // When the app loads

@@ -10,6 +10,7 @@
 import SwiftUI
 import CoreData
 import Combine
+import NavigationStack
 
 // Welcome View that shows the first time a user opens the app
 struct WelcomeView: View {
@@ -18,7 +19,7 @@ struct WelcomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     // This will let me dismiss the view when the user hits the confirmation button
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var navStack: NavigationStack
     
     // Variables to hold the data collected in the form
     @State var habitName: String = ""
@@ -80,7 +81,7 @@ struct WelcomeView: View {
             .padding()
             Spacer()
             Button(
-                action: { fillInTheBlanks(); self.presentationMode.wrappedValue.dismiss() },
+                action: { fillInTheBlanks(); self.navStack.pop() },
                 label: { Text("Start building good habits") }
             )
             .buttonStyle(SpecialButtonStyle(actionType: .confirm))
@@ -90,7 +91,9 @@ struct WelcomeView: View {
         .navigationBarHidden(true)
         // When the view is dismissed, write the first Habit into CoreData
         .onDisappear() {
+            print("Testing if we get here on an iPad 2")
             if habits.count == 0 {
+                print("Testing if we get here on an iPad 3")
                 addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
             }
         }

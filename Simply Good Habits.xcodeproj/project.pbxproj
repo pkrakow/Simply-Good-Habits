@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
 		DAB00FC425AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
+		DAC15E2D25D0E7550052B85D /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = DAC15E2C25D0E7550052B85D /* NavigationStack */; };
 		DADB2D1225BCCD9B006BBAA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */; };
 		DADB2D1325BCCD9B006BBAA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */; };
 		DADB9CA1259AA722000C1ABB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CA0259AA722000C1ABB /* Tests_iOS.swift */; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC15E2D25D0E7550052B85D /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +201,9 @@
 			dependencies = (
 			);
 			name = "Simply Good Habits (iOS)";
+			packageProductDependencies = (
+				DAC15E2C25D0E7550052B85D /* NavigationStack */,
+			);
 			productName = "Simply Good Habits (iOS)";
 			productReference = DADB9C8C259AA722000C1ABB /* Simply Good Habits.app */;
 			productType = "com.apple.product-type.application";
@@ -290,6 +295,9 @@
 				Base,
 			);
 			mainGroup = DADB9C7F259AA721000C1ABB;
+			packageReferences = (
+				DAC15E2B25D0E7550052B85D /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
+			);
 			productRefGroup = DADB9C8D259AA722000C1ABB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -746,6 +754,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DAC15E2B25D0E7550052B85D /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DAC15E2C25D0E7550052B85D /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAC15E2B25D0E7550052B85D /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */ = {
