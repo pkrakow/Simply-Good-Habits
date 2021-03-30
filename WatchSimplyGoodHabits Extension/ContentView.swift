@@ -1,18 +1,13 @@
 //
 //  ContentView.swift
-//  Shared
+//  WatchSimplyGoodHabits Extension
 //
-//  Created by Paul Krakow on 12/28/20.
+//  Created by Paul on 2/28/21.
 //
-
-
-// TODO Notes
-// The app is locked in portrait mode because there were issues with landscape mode
 
 
 import SwiftUI
 import CoreData
-import NavigationStack
 
 
 struct ContentView: View {
@@ -30,32 +25,17 @@ struct ContentView: View {
     ) var habits: FetchedResults<Habit>
     
     var body: some View {
-        NavigationStackView {
-            VStack {
-                PushView(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
-                Text("Simply Good Habits")
-                    .font(.largeTitle)
-                    .underline()
-                PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
-                Button(
-                    action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
-                    label: { Text("\((habits.first?.count ?? 0))") }
-                )
-                .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
-                .font(.largeTitle)
-                .shadow(color: .dropShadow, radius: 15, x: 10, y: 10)
-                .shadow(color: .dropLight, radius: 15, x: -10, y: -10)
-                HStack {
-                    Text("Target \(Text(habits.first?.moreOrLess ?? true ? ">=" : "<=")) \(habits.first?.target ?? 0)")
-                    Spacer()
-                    Button(
-                        action: { decrementHabitCount() },
-                        //action: {},
-                        label: { Text("Undo") }
-                    )
-                    .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .undo))
-                }.padding()
-            }
+        VStack {
+            Text("Simply Good Habits")
+                .underline()
+            Button(
+                action: { incrementHabitCount()},
+                label: { Text("\((habits.first?.count ?? 0))") }
+            )
+            .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
+            .font(.largeTitle)
+            .shadow(color: .dropShadow, radius: 15, x: 10, y: 10)
+            .shadow(color: .dropLight, radius: 15, x: -10, y: -10)
         }
         .environment(\.managedObjectContext, viewContext)
         // When the app loads
@@ -76,18 +56,17 @@ struct ContentView: View {
                 startNewDay()
             }
         }
-        // When the app moves to the foreground
-        .onReceive(NotificationCenter.default.publisher(for:
-            UIApplication.willEnterForegroundNotification)) { _ in
-            
-            // Check if it is a new day, and if so, setup the app for the new day
-            if newDayDetector() {
-                startNewDay()
-            }
-            
+        // When the WatchOS app moves to the foreground
+        .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification)) { _ in
+                //print("Moving to the foreground")
+                // Check if it is a new day, and if so, setup the app for the new day
+                if newDayDetector() {
+                    startNewDay()
+                }
         }
-        
     }
+
+    
     
     // Determine if the app is being used on a new  day compared to the last use
     func newDayDetector() -> Bool {
@@ -196,7 +175,7 @@ struct ContentView: View {
         // Save the updated list of habits to CoreData
       saveContext()
     }
-    
+
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -205,7 +184,4 @@ struct ContentView_Previews: PreviewProvider {
             PersistenceController.preview.container.viewContext)
     }
 }
-
-
-
 

@@ -10,6 +10,8 @@ import SwiftUI
 // Quick check for which platform we're building for - since they support different Color objects
 #if os(iOS)
     typealias XColor = UIColor
+#elseif os(watchOS)
+    typealias XColor = UIColor
 #elseif os(OSX)
     typealias XColor = NSColor
 #endif
@@ -57,11 +59,14 @@ struct DoMoreDoLessUndoButtonStyle: ButtonStyle {
         var bgColor: Color {
             switch self {
             case .doMore:
-                return Color(XColor.systemGreen)
+                //return Color(XColor.systemGreen)
+                return Color(XColor.green)
             case .doLess:
-                return Color(XColor.systemYellow)
+                //return Color(XColor.systemYellow)
+                return Color(XColor.yellow)
             case .undo:
-                return Color(XColor.systemGray)
+                //return Color(XColor.systemGray)
+                return Color(XColor.gray)
             }
         }
         
@@ -135,11 +140,14 @@ struct SpecialButtonStyle: ButtonStyle {
         var bgColor: Color {
             switch self {
             case .confirm:
-                return Color(XColor.systemGreen)
+                //return Color(XColor.systemGreen)
+                return Color(XColor.green)
             case .cancel:
-                return Color(XColor.systemRed)
+                //return Color(XColor.systemRed)
+                return Color(XColor.red)
             case .delete:
-                return Color(XColor.systemRed)
+                //return Color(XColor.systemRed)
+                return Color(XColor.red)
             }
         }
         var fgColor: Color {
