@@ -30,6 +30,7 @@
 		DA71E83225EC18D8009C14E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA71E83125EC18D8009C14E1 /* Assets.xcassets */; };
 		DA71E83525EC18D8009C14E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA71E83425EC18D8009C14E1 /* Preview Assets.xcassets */; };
 		DA71E83A25EC18D8009C14E1 /* WatchSimplyGoodHabits.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DA71E81925EC18D7009C14E1 /* WatchSimplyGoodHabits.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DAA0532726193A31003C3465 /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = DAA0532626193A31003C3465 /* NavigationStack */; };
 		DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
@@ -147,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA0532726193A31003C3465 /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +338,7 @@
 			);
 			name = "WatchSimplyGoodHabits Extension";
 			packageProductDependencies = (
+				DAA0532626193A31003C3465 /* NavigationStack */,
 			);
 			productName = "WatchSimplyGoodHabits Extension";
 			productReference = DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */;
@@ -1084,6 +1087,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DAA0532626193A31003C3465 /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAC15E2B25D0E7550052B85D /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
 		DAC15E2C25D0E7550052B85D /* NavigationStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DAC15E2B25D0E7550052B85D /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
