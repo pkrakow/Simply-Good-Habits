@@ -19,11 +19,14 @@
 		DA32AAAF25B4D5DC001D82DF /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32AAAD25B4D5DC001D82DF /* Haptics.swift */; };
 		DA32AAB525B4D704001D82DF /* Bell-Tree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */; };
 		DA32AAB625B4D704001D82DF /* Bell-Tree.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */; };
+		DA36AAEC261A308200FEC043 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9C86259AA721000C1ABB /* ContentView.swift */; };
+		DA36AAF3261A324A00FEC043 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */; };
+		DA36AAF4261A324A00FEC043 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA4D53AE25C8F87F00974930 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA4D53AF25C8F87F00974930 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA71E81C25EC18D7009C14E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA71E81B25EC18D7009C14E1 /* Assets.xcassets */; };
 		DA71E82325EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DA71E82A25EC18D7009C14E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82925EC18D7009C14E1 /* ContentView.swift */; };
+		DA71E82A25EC18D7009C14E1 /* altContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82925EC18D7009C14E1 /* altContentView.swift */; };
 		DA71E82C25EC18D7009C14E1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82B25EC18D7009C14E1 /* NotificationController.swift */; };
 		DA71E82E25EC18D7009C14E1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82D25EC18D7009C14E1 /* NotificationView.swift */; };
 		DA71E83025EC18D7009C14E1 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */; };
@@ -115,7 +118,7 @@
 		DA71E81B25EC18D7009C14E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA71E81D25EC18D7009C14E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchSimplyGoodHabits Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA71E82925EC18D7009C14E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DA71E82925EC18D7009C14E1 /* altContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = altContentView.swift; sourceTree = "<group>"; };
 		DA71E82B25EC18D7009C14E1 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		DA71E82D25EC18D7009C14E1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -203,7 +206,7 @@
 		DA71E82625EC18D7009C14E1 /* WatchSimplyGoodHabits Extension */ = {
 			isa = PBXGroup;
 			children = (
-				DA71E82925EC18D7009C14E1 /* ContentView.swift */,
+				DA71E82925EC18D7009C14E1 /* altContentView.swift */,
 				DA71E82B25EC18D7009C14E1 /* NotificationController.swift */,
 				DA71E82D25EC18D7009C14E1 /* NotificationView.swift */,
 				DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */,
@@ -537,9 +540,12 @@
 			files = (
 				DA2397FC2606A1160037199E /* Simply_Good_HabitsApp.swift in Sources */,
 				DA71E82C25EC18D7009C14E1 /* NotificationController.swift in Sources */,
-				DA71E82A25EC18D7009C14E1 /* ContentView.swift in Sources */,
+				DA36AAF4261A324A00FEC043 /* EditView.swift in Sources */,
+				DA71E82A25EC18D7009C14E1 /* altContentView.swift in Sources */,
 				DA23981E2606A3530037199E /* Persistence.swift in Sources */,
 				DA71E83025EC18D7009C14E1 /* ComplicationController.swift in Sources */,
+				DA36AAF3261A324A00FEC043 /* WelcomeView.swift in Sources */,
+				DA36AAEC261A308200FEC043 /* ContentView.swift in Sources */,
 				DA71E82E25EC18D7009C14E1 /* NotificationView.swift in Sources */,
 				DA23987D2606B0870037199E /* CustomButtonStyles.swift in Sources */,
 				DA2398252606A5EB0037199E /* Simply_Good_Habits.xcdatamodeld in Sources */,

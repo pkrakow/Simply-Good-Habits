@@ -29,6 +29,15 @@ struct ContentView: View {
         ]
     ) var habits: FetchedResults<Habit>
     
+    #if os(watchOS)
+    var body: some View {
+        NavigationStackView {
+            VStack {
+                Text("Simply Good Watch Habits")
+            }
+        }
+    }
+    #else
     var body: some View {
         NavigationStackView {
             VStack {
@@ -88,6 +97,7 @@ struct ContentView: View {
         }
         
     }
+    #endif
     
     // Determine if the app is being used on a new  day compared to the last use
     func newDayDetector() -> Bool {

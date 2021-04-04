@@ -42,6 +42,15 @@ struct EditView: View {
     ) var habits: FetchedResults<Habit>
     
     // The EditView objects
+    #if os(watchOS)
+    var body: some View {
+        NavigationStackView {
+            VStack {
+                Text("Simply Good Watch Edits")
+            }
+        }
+    }
+    #else
     var body: some View {
         VStack {
             Text("Simply Good Habits")
@@ -116,6 +125,7 @@ struct EditView: View {
             fillInTheBlanks()
         }
     }
+    #endif
     
     // Save habits to CoreData - duplicate of the ContentView func
     public func saveContext() {

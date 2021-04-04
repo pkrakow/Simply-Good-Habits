@@ -37,6 +37,16 @@ struct WelcomeView: View {
     ) var habits: FetchedResults<Habit>
     
     // The WelcomeView objects
+    
+    #if os(watchOS)
+    var body: some View {
+        NavigationStackView {
+            VStack {
+                Text("Simply Good Watch Welcomes")
+            }
+        }
+    }
+    #else
     var body: some View {
         VStack {
             Text("Simply Good Habits")
@@ -98,6 +108,7 @@ struct WelcomeView: View {
             }
         }
     }
+    #endif
     
     // Save habits to CoreData - duplicate of the ContentView func
     public func saveContext() {

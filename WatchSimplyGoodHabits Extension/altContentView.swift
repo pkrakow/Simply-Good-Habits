@@ -4,7 +4,7 @@
 //
 //  Created by Paul on 2/28/21.
 //
-
+/*
 
 import SwiftUI
 import CoreData
@@ -185,3 +185,4 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+*/
