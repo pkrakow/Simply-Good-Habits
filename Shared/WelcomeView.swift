@@ -37,12 +37,36 @@ struct WelcomeView: View {
     ) var habits: FetchedResults<Habit>
     
     // The WelcomeView objects
-    
     #if os(watchOS)
+    @State var scrollAmount = 0.0
     var body: some View {
         NavigationStackView {
             VStack {
-                Text("Simply Good Watch Welcomes")
+                Text("Your First Habit")
+                    .underline()
+                Text("Target: \(abs(Int64(round((scrollAmount/10))))) ->")
+                    .focusable(true)
+                    .digitalCrownRotation($scrollAmount)
+                Button(
+                    action: { moreOrLess = true; habitName = "Do More" },
+                    label: { Text("Do More") }
+                ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: moreOrLess))
+                Button(
+                    action: { moreOrLess = false; habitName = "Do Less" },
+                    label: { Text("Do Less") }
+                )
+                .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
+                Button(
+                    action: { target = String(abs(Int64(round((scrollAmount/10))))); fillInTheBlanks(); self.navStack.pop() },
+                    label: { Text("Get Started") }
+                )
+                .buttonStyle(SpecialButtonStyle(actionType: .confirm))
+            }
+            // When the view is dismissed, write the first Habit into CoreData
+            .onDisappear() {
+                if habits.count == 0 {
+                    addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
+                }
             }
         }
     }
@@ -75,7 +99,6 @@ struct WelcomeView: View {
 
             VStack {
                 Text("Do this:")
-
                 HStack {
                     Button(
                         action: { moreOrLess = true},
@@ -101,9 +124,9 @@ struct WelcomeView: View {
         .navigationBarHidden(true)
         // When the view is dismissed, write the first Habit into CoreData
         .onDisappear() {
-            print("Testing if we get here on an iPad 2")
+            //print("Testing if we get here on an iPad 2")
             if habits.count == 0 {
-                print("Testing if we get here on an iPad 3")
+                //print("Testing if we get here on an iPad 3")
                 addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
             }
         }

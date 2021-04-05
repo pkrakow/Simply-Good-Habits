@@ -26,7 +26,6 @@
 		DA4D53AF25C8F87F00974930 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA71E81C25EC18D7009C14E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA71E81B25EC18D7009C14E1 /* Assets.xcassets */; };
 		DA71E82325EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DA71E82A25EC18D7009C14E1 /* altContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82925EC18D7009C14E1 /* altContentView.swift */; };
 		DA71E82C25EC18D7009C14E1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82B25EC18D7009C14E1 /* NotificationController.swift */; };
 		DA71E82E25EC18D7009C14E1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82D25EC18D7009C14E1 /* NotificationView.swift */; };
 		DA71E83025EC18D7009C14E1 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */; };
@@ -118,7 +117,6 @@
 		DA71E81B25EC18D7009C14E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA71E81D25EC18D7009C14E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchSimplyGoodHabits Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA71E82925EC18D7009C14E1 /* altContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = altContentView.swift; sourceTree = "<group>"; };
 		DA71E82B25EC18D7009C14E1 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		DA71E82D25EC18D7009C14E1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		DA71E82625EC18D7009C14E1 /* WatchSimplyGoodHabits Extension */ = {
 			isa = PBXGroup;
 			children = (
-				DA71E82925EC18D7009C14E1 /* altContentView.swift */,
 				DA71E82B25EC18D7009C14E1 /* NotificationController.swift */,
 				DA71E82D25EC18D7009C14E1 /* NotificationView.swift */,
 				DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */,
@@ -541,7 +538,6 @@
 				DA2397FC2606A1160037199E /* Simply_Good_HabitsApp.swift in Sources */,
 				DA71E82C25EC18D7009C14E1 /* NotificationController.swift in Sources */,
 				DA36AAF4261A324A00FEC043 /* EditView.swift in Sources */,
-				DA71E82A25EC18D7009C14E1 /* altContentView.swift in Sources */,
 				DA23981E2606A3530037199E /* Persistence.swift in Sources */,
 				DA71E83025EC18D7009C14E1 /* ComplicationController.swift in Sources */,
 				DA36AAF3261A324A00FEC043 /* WelcomeView.swift in Sources */,
@@ -636,6 +632,7 @@
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				IBSC_MODULE = WatchSimplyGoodHabits_Extension;
 				INFOPLIST_FILE = WatchSimplyGoodHabits/Info.plist;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -656,6 +653,7 @@
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				IBSC_MODULE = WatchSimplyGoodHabits_Extension;
 				INFOPLIST_FILE = WatchSimplyGoodHabits/Info.plist;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -681,6 +679,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -705,6 +704,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -892,6 +892,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
 				PRODUCT_NAME = "Simply Good Habits";
 				SDKROOT = macosx;
@@ -917,6 +918,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
 				PRODUCT_NAME = "Simply Good Habits";
 				SDKROOT = macosx;

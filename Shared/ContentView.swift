@@ -29,15 +29,64 @@ struct ContentView: View {
         ]
     ) var habits: FetchedResults<Habit>
     
+
     #if os(watchOS)
+    // watchOS version of ContentView
     var body: some View {
         NavigationStackView {
             VStack {
-                Text("Simply Good Watch Habits")
+                PushView(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
+                //Text("Simply Good Habits")
+                //    .underline()
+                PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
+                Button(
+                    action: { incrementHabitCount() },
+                    label: { Text("\((habits.first?.count ?? 0))") }
+                )
+                .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
+                .font(.largeTitle)
+                .shadow(color: .dropShadow, radius: 10, x: 10, y: 10)
+                .shadow(color: .dropLight, radius: 10, x: -10, y: -10)
+                .padding()
+                // [UPDATE: Temporary implementation of the Undo button - functional but doesn't look good]
+                Button(
+                    action: { decrementHabitCount() },
+                    label: { Text("Undo") }
+                )
+                .font(.footnote)
+                .frame(height: 4)
             }
+        }
+        .environment(\.managedObjectContext, viewContext)
+        // When the app loads
+        .onAppear() {
+            //print("onAppear Fired")
+            
+            // Check if this is the first time the app has been used
+            if habits.count == 0
+            {
+                print("First Use")
+                // Create the first Habit entity in CoreData
+                // Navigate to the WelcomeView to let the user setup the first good habit
+                self.selection = "Welcome"
+            }
+            
+            // Check if it is a new day, and if so, setup the app for the new day
+            if newDayDetector() {
+                startNewDay()
+            }
+        }
+        // When the WatchOS app moves to the foreground
+        .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification)) { _ in
+                //print("Moving to the foreground")
+                // Check if it is a new day, and if so, setup the app for the new day
+                if newDayDetector() {
+                    startNewDay()
+                }
         }
     }
     #else
+    // iOS & MacOS version of ContentView
     var body: some View {
         NavigationStackView {
             VStack {
@@ -59,7 +108,6 @@ struct ContentView: View {
                     Spacer()
                     Button(
                         action: { decrementHabitCount() },
-                        //action: {},
                         label: { Text("Undo") }
                     )
                     .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .undo))
@@ -85,17 +133,16 @@ struct ContentView: View {
                 startNewDay()
             }
         }
+        
         // When the app moves to the foreground
         .onReceive(NotificationCenter.default.publisher(for:
             UIApplication.willEnterForegroundNotification)) { _ in
-            
             // Check if it is a new day, and if so, setup the app for the new day
             if newDayDetector() {
                 startNewDay()
             }
             
         }
-        
     }
     #endif
     

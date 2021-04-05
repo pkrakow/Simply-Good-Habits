@@ -43,10 +43,59 @@ struct EditView: View {
     
     // The EditView objects
     #if os(watchOS)
+    @State var scrollAmount = 0.0
     var body: some View {
         NavigationStackView {
             VStack {
-                Text("Simply Good Watch Edits")
+                Text("Edit Your Habit")
+                    .underline()
+                Text("Target: \(abs(Int64(round((scrollAmount/10))))) ->")
+                    .focusable(true)
+                    .digitalCrownRotation($scrollAmount)
+                Button(
+                    action: { moreOrLess = true; habitName = "Do More" },
+                    label: { Text("Do More") }
+                ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: moreOrLess))
+                Button(
+                    action: { moreOrLess = false; habitName = "Do Less" },
+                    label: { Text("Do Less") }
+                )
+                .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
+                Button(
+                    action: { target = String(abs(Int64(round((scrollAmount/10))))); fillInTheBlanks(); self.navStack.pop() },
+                    label: { Text("OK, Done!") }
+                )
+                .buttonStyle(SpecialButtonStyle(actionType: .confirm))
+            }
+            // When the view is dismissed, write the first Habit into CoreData
+            .onDisappear() {
+                // Write the updated habit to CoreData
+                if (habitName == originalHabitName) {
+                    // If the name didn't change, keep the original UUID and creation date
+                    addHabit(uuid: uuid, creationDate: creationDate, name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
+                    print("original \(target)")
+                } else {
+                    // If the name changed, create a new UUID and creation date to mark the start of a new habit
+                    addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
+                    print("new \(target)")
+                }
+            }
+            .onAppear() {
+                uuid = habits.first?.uuid ?? UUID()
+                creationDate = habits.first?.creationDate ?? Date()
+                habitName = habits.first?.name ?? ""
+                originalHabitName = habitName
+                moreOrLess = habits.first?.moreOrLess ?? true
+                target = String(habits.first?.target ?? 0)
+                count = habits.first?.count ?? 0
+                fillInTheBlanks()
+                scrollAmount = (Double(target) ?? 0) * 10
+                
+                /*
+                // Note that the logic tying the habit target to the digital crown knob is brittle
+                print("appear after \(target)")
+                print("scrollAmount \(scrollAmount)")
+                */
             }
         }
     }

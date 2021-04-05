@@ -16,6 +16,18 @@ import SwiftUI
     typealias XColor = NSColor
 #endif
 
+
+// Test code for trying to figure out how to get the button to handle double taps
+// https://fivestars.blog/swiftui/button-styles.html
+// https://stackoverflow.com/questions/58284994/swiftui-how-to-handle-both-tap-long-press-of-button
+func testSingle() -> Void {
+    print("Single Tap")
+}
+
+func testDouble() -> Void {
+    print("Double Tap")
+}
+
 struct DynamicRoundButtonStyle: ButtonStyle {
     var font: Font = .largeTitle
     var padding: CGFloat = 8
@@ -33,6 +45,9 @@ struct DynamicRoundButtonStyle: ButtonStyle {
             .padding(.horizontal, 20)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
             .animation(.spring())
+            /*.onTapGesture(count: 2) {
+                testDouble()
+            }*/
     }
 }
 
