@@ -45,9 +45,14 @@ struct DynamicRoundButtonStyle: ButtonStyle {
             .padding(.horizontal, 20)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
             .animation(.spring())
-            /*.onTapGesture(count: 2) {
+            /*
+            .onTapGesture(count: 2) {
                 testDouble()
-            }*/
+            }
+            .onTapGesture {
+                testSingle()
+            }
+            */
     }
 }
 

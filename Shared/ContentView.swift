@@ -29,24 +29,20 @@ struct ContentView: View {
         ]
     ) var habits: FetchedResults<Habit>
     
-
     #if os(watchOS)
     // watchOS version of ContentView
     var body: some View {
         NavigationStackView {
             VStack {
                 PushView(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
-                //Text("Simply Good Habits")
-                //    .underline()
                 PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
                 Button(
                     action: { incrementHabitCount() },
                     label: { Text("\((habits.first?.count ?? 0))") }
                 )
                 .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
-                .font(.largeTitle)
-                .shadow(color: .dropShadow, radius: 10, x: 10, y: 10)
-                .shadow(color: .dropLight, radius: 10, x: -10, y: -10)
+                .shadow(color: .dropShadow, radius: 3, x: 3, y: 3)
+                .shadow(color: .dropLight, radius: 3, x: -3, y: -3)
                 .padding()
                 // [UPDATE: Temporary implementation of the Undo button - functional but doesn't look good]
                 Button(
@@ -54,7 +50,7 @@ struct ContentView: View {
                     label: { Text("Undo") }
                 )
                 .font(.footnote)
-                .frame(height: 4)
+                .frame(height: 0.005)
             }
         }
         .environment(\.managedObjectContext, viewContext)
