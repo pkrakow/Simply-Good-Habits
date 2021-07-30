@@ -36,6 +36,7 @@ struct ContentView: View {
             VStack {
                 PushView(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
                 PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
+                    .frame(alignment: .top)
                 Button(
                     action: { incrementHabitCount() },
                     label: { Text("\((habits.first?.count ?? 0))") }
@@ -43,14 +44,13 @@ struct ContentView: View {
                 .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
                 .shadow(color: .dropShadow, radius: 3, x: 3, y: 3)
                 .shadow(color: .dropLight, radius: 3, x: -3, y: -3)
-                .padding()
-                // [UPDATE: Temporary implementation of the Undo button - functional but doesn't look good]
+                .scaledToFill()
                 Button(
                     action: { decrementHabitCount() },
                     label: { Text("Undo") }
                 )
                 .font(.footnote)
-                .frame(height: 0.005)
+                .scaledToFit()
             }
         }
         .environment(\.managedObjectContext, viewContext)

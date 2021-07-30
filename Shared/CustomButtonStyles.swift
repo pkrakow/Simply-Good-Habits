@@ -80,10 +80,12 @@ struct DoMoreDoLessUndoButtonStyle: ButtonStyle {
             switch self {
             case .doMore:
                 //return Color(XColor.systemGreen)
-                return Color(XColor.green)
+                //return Color(XColor.green)
+                return Color(XColor.init(red: 0.2027917802, green: 0.7736228108, blue: 0.3503019214, alpha: 1))
             case .doLess:
                 //return Color(XColor.systemYellow)
-                return Color(XColor.yellow)
+                //return Color(XColor.yellow)
+                return Color(XColor.init(red: 1, green: 0.7986280918, blue: 0.003836791031, alpha: 1))
             case .undo:
                 //return Color(XColor.systemGray)
                 return Color(XColor.gray)
@@ -161,7 +163,8 @@ struct SpecialButtonStyle: ButtonStyle {
             switch self {
             case .confirm:
                 //return Color(XColor.systemGreen)
-                return Color(XColor.green)
+                //return Color(XColor.green)
+                return Color(XColor.init(red: 0.2027917802, green: 0.7736228108, blue: 0.3503019214, alpha: 1))
             case .cancel:
                 //return Color(XColor.systemRed)
                 return Color(XColor.red)
