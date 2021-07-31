@@ -632,7 +632,7 @@
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				IBSC_MODULE = WatchSimplyGoodHabits_Extension;
 				INFOPLIST_FILE = WatchSimplyGoodHabits/Info.plist;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -653,7 +653,7 @@
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				IBSC_MODULE = WatchSimplyGoodHabits_Extension;
 				INFOPLIST_FILE = WatchSimplyGoodHabits/Info.plist;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -679,7 +679,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -704,7 +704,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -841,7 +841,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow;
 				PRODUCT_NAME = "Simply Good Habits";
 				SDKROOT = iphoneos;
@@ -864,7 +864,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow;
 				PRODUCT_NAME = "Simply Good Habits";
 				SDKROOT = iphoneos;
@@ -892,7 +892,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
 				PRODUCT_NAME = "Simply Good Habits";
 				SDKROOT = macosx;
@@ -918,7 +918,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "COVID-19.Simply-Good-Habits";
 				PRODUCT_NAME = "Simply Good Habits";
 				SDKROOT = macosx;

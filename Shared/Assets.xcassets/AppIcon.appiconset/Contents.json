@@ -253,7 +253,7 @@
       "size" : "512x512"
     },
     {
-      "filename" : "iTunesArtwork@2x.png",
+      "filename" : "iTunesArtwork@2x-dedupename.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
