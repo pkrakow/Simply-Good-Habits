@@ -39,11 +39,12 @@ struct ContentView: View {
                     .frame(alignment: .top)
                 Button(
                     action: { incrementHabitCount() },
-                    label: { Text("\((habits.first?.count ?? 0))") }
+                    //label: { Text("\((habits.first?.count ?? 0))") }
+                    label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
                 )
                 .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
-                .shadow(color: .dropShadow, radius: 3, x: 3, y: 3)
-                .shadow(color: .dropLight, radius: 3, x: -3, y: -3)
+                .shadow(color: .dropShadow, radius: 2, x: 2, y: 2)
+                .shadow(color: .dropLight, radius: 2, x: -2, y: -2)
                 .scaledToFill()
                 Button(
                     action: { decrementHabitCount() },
@@ -93,7 +94,8 @@ struct ContentView: View {
                 PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
                 Button(
                     action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
-                    label: { Text("\((habits.first?.count ?? 0))") }
+                    //label: { Text("\((habits.first?.count ?? 0))") } // Simple version that shows an increasing count regardless of moreOrLess state
+                    label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
                 )
                 .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
                 .font(.largeTitle)
