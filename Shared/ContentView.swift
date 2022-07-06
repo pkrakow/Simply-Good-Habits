@@ -13,6 +13,7 @@
 import SwiftUI
 import CoreData
 import NavigationStack
+import WatchConnectivity
 
 
 struct ContentView: View {
