@@ -5,7 +5,6 @@
 //  Created by Paul Krakow on 12/28/20.
 //
 
-
 // TODO Notes
 // The app is locked in portrait mode because there were issues with landscape mode
 
@@ -19,6 +18,10 @@ import WatchConnectivity
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var selection: String? = nil
+    @State private var updateView: Bool = false
+    @State private var isWelcomeViewPresented: Bool = false
+    @State private var isEditingViewPresented: Bool = false
+    @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
     
     // Retrieve stored habits from CoreData
     @FetchRequest(
@@ -33,40 +36,51 @@ struct ContentView: View {
     #if os(watchOS)
     // watchOS version of ContentView
     var body: some View {
-        NavigationStackView {
-            VStack {
-                PushView(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
-                PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
-                    .frame(alignment: .top)
-                Button(
-                    action: { incrementHabitCount() },
-                    //label: { Text("\((habits.first?.count ?? 0))") }
-                    label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
-                )
-                .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
-                .shadow(color: .dropShadow, radius: 2, x: 2, y: 2)
-                .shadow(color: .dropLight, radius: 2, x: -2, y: -2)
-                .scaledToFill()
-                Button(
-                    action: { decrementHabitCount() },
-                    label: { Text("Undo") }
-                )
-                .font(.footnote)
-                .scaledToFit()
+        NavigationView {
+            GeometryReader { geometry in
+                VStack {
+                    Text(habits.first?.name ?? "First Good Habit")
+                        .foregroundColor(Color.blue)
+                        .onTapGesture {
+                            isEditingViewPresented = true
+                        }
+                        .sheet(isPresented: $isWelcomeViewPresented) {
+                            WelcomeView(updateView: $updateView, isPresented: $isWelcomeViewPresented)
+                        }
+                        .sheet(isPresented: $isEditingViewPresented) {
+                            EditView(updateView: $updateView)
+                        }
+
+                    Button(
+                        action: { incrementHabitCount() },
+                        label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
+                    )
+                    .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
+                    .shadow(color: .dropShadow, radius: 2, x: 2, y: 2)
+                    .shadow(color: .dropLight, radius: 2, x: -2, y: -2)
+                    .scaledToFill()
+
+                    Button(
+                        action: { decrementHabitCount() },
+                        label: { Text("Undo") }
+                    )
+                    .font(.footnote)
+                }
+                .padding(.top, geometry.safeAreaInsets.top + 20) // Increase the top padding
+                .offset(y: 20) // Increase the y-axis offset
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .edgesIgnoringSafeArea(.all)
             }
         }
         .environment(\.managedObjectContext, viewContext)
         // When the app loads
         .onAppear() {
-            //print("onAppear Fired")
-            
             // Check if this is the first time the app has been used
-            if habits.count == 0
-            {
+            if habits.count == 0 {
                 print("First Use")
                 // Create the first Habit entity in CoreData
-                // Navigate to the WelcomeView to let the user setup the first good habit
-                self.selection = "Welcome"
+                // Navigate to the WelcomeView to let the user set up the first good habit
+                self.isWelcomeViewPresented = true
             }
             
             // Check if it is a new day, and if so, setup the app for the new day
@@ -76,26 +90,31 @@ struct ContentView: View {
         }
         // When the WatchOS app moves to the foreground
         .onReceive(NotificationCenter.default.publisher(for: WKExtension.applicationDidBecomeActiveNotification)) { _ in
-                //print("Moving to the foreground")
-                // Check if it is a new day, and if so, setup the app for the new day
-                if newDayDetector() {
-                    startNewDay()
-                }
+            // Check if it is a new day, and if so, setup the app for the new day
+            if newDayDetector() {
+                startNewDay()
+            }
         }
     }
     #else
+
+
     // iOS & MacOS version of ContentView
     var body: some View {
-        NavigationStackView {
+        NavigationView {
             VStack {
-                PushView(destination: WelcomeView(), tag: "Welcome", selection: $selection) { EmptyView() }
                 Text("Simply Good Habits")
                     .font(.largeTitle)
                     .underline()
-                PushView(destination: EditView(), tag: "Edit", selection: $selection) { Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue) }
+                Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue)
+                    .onTapGesture {
+                        selection = "Edit"
+                    }
+                    .sheet(isPresented: $isWelcomeViewPresented) {
+                WelcomeView(updateView: $updateView, isPresented: $isWelcomeViewPresented)
+            }
                 Button(
                     action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
-                    //label: { Text("\((habits.first?.count ?? 0))") } // Simple version that shows an increasing count regardless of moreOrLess state
                     label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
                 )
                 .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
@@ -112,6 +131,10 @@ struct ContentView: View {
                     .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .undo))
                 }.padding()
             }
+            .onChange(of: updateView) { _ in
+                print("UpdateView changed")
+                // Add any other code you need to execute when updateView changes
+            }
         }
         .environment(\.managedObjectContext, viewContext)
         // When the app loads
@@ -119,14 +142,13 @@ struct ContentView: View {
             //print("onAppear Fired")
             
             // Check if this is the first time the app has been used
-            if habits.count == 0
-            {
+            if !hasLaunchedBefore && habits.count == 0 {
                 print("First Use")
                 // Create the first Habit entity in CoreData
-                // Navigate to the WelcomeView to let the user setup the first good habit
-                self.selection = "Welcome"
+                // Navigate to the WelcomeView to let the user set up the first good habit
+                self.isWelcomeViewPresented = true
+                hasLaunchedBefore = true
             }
-            
             // Check if it is a new day, and if so, setup the app for the new day
             if newDayDetector() {
                 startNewDay()
@@ -166,21 +188,21 @@ struct ContentView: View {
     // Prep the app for a new day of use
     func startNewDay() -> Void {
         // Create a new habit entry that takes the persistent elements of the last entry, and updates the creationDate and count for the new day
-        addHabit(uuid: (habits.first?.uuid)!, creationDate: Date(), name: (habits.first?.name)!, moreOrLess: (habits.first?.moreOrLess)!, target: (habits.first?.target)!, count: 0)
-        saveContext()
+        CoreDataHelper.addHabit(context: viewContext, uuid: (habits.first?.uuid)!, creationDate: Date(), name: (habits.first?.name)!, moreOrLess: (habits.first?.moreOrLess)!, target: (habits.first?.target)!, count: 0)
+        CoreDataHelper.saveContext(context: viewContext)
     }
     
     // Increase the habit count by 1
     func incrementHabitCount() -> Void {
         habits.first?.count += 1
-        saveContext()
+        CoreDataHelper.saveContext(context: viewContext)
     }
     
     // Decrease the habit count by 1
     func decrementHabitCount() -> Void {
         if habits.first?.count ?? 0 > 0 {
             habits.first?.count -= 1
-            saveContext()
+            CoreDataHelper.saveContext(context: viewContext)
         }
     }
     
@@ -215,44 +237,6 @@ struct ContentView: View {
         return updateColor
     }
     
-    // Save habits to CoreData
-    public func saveContext() {
-      do {
-        try viewContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
-    }
-    
-    // Add a new habit
-    public func addHabit(uuid: UUID, creationDate: Date, name: String, moreOrLess: Bool,  target: Int64, count: Int64) {
-        // Create a newHabit object
-        let newHabit = Habit(context: viewContext)
-        
-        // Populate the attributes of the newHabit
-        newHabit.uuid = UUID()
-        newHabit.creationDate = Date()
-        newHabit.name = name
-        newHabit.moreOrLess = moreOrLess
-        newHabit.target = target
-        newHabit.count = count
-        
-        // Save all of the habits including the new one
-        saveContext()
-    }
-    
-    // Delete a habit
-    public func deleteHabit(at offsets: IndexSet) {
-        // Go through the CoreData index to find and delete the specific habit
-        offsets.forEach { index in
-            let habit = self.habits[index]
-            self.viewContext.delete(habit)
-      }
-      
-        // Save the updated list of habits to CoreData
-      saveContext()
-    }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -261,7 +245,3 @@ struct ContentView_Previews: PreviewProvider {
             PersistenceController.preview.container.viewContext)
     }
 }
-
-
-
-

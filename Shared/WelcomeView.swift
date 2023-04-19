@@ -10,16 +10,20 @@
 import SwiftUI
 import CoreData
 import Combine
-import NavigationStack
+//import NavigationStack
 
 // Welcome View that shows the first time a user opens the app
 struct WelcomeView: View {
+    @Binding var updateView: Bool
+    @Binding var isPresented: Bool
+    
     // This managedObjectContext grants access to shared CoreData across views
     // But all of the data access functions have to be included in each view
     @Environment(\.managedObjectContext) private var viewContext
     
     // This will let me dismiss the view when the user hits the confirmation button
-    @EnvironmentObject var navStack: NavigationStack
+    // Temporarily commented out because Xcode threw an error after I updated to version 14.2
+    //@EnvironmentObject var navStack: NavigationStack
     
     // Variables to hold the data collected in the form
     @State var habitName: String = ""
@@ -40,7 +44,7 @@ struct WelcomeView: View {
     #if os(watchOS)
     @State var scrollAmount = 0.0
     var body: some View {
-        NavigationStackView {
+        NavigationView {
             VStack {
                 Text("Your First Habit")
                     .underline()
@@ -56,16 +60,20 @@ struct WelcomeView: View {
                     label: { Text("Do Less") }
                 )
                 .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
-                Button(
-                    action: { target = String(abs(Int64(round((scrollAmount/10))))); fillInTheBlanks(); self.navStack.pop() },
-                    label: { Text("Get Started") }
-                )
+                Button(action: {
+                    target = String(abs(Int64(round((scrollAmount/10)))));
+                    fillInTheBlanks();
+                    self.isPresented = false
+                    self.updateView = true
+                }) {
+                    Text("Get Started")
+                }
                 .buttonStyle(SpecialButtonStyle(actionType: .confirm))
             }
             // When the view is dismissed, write the first Habit into CoreData
             .onDisappear() {
                 if habits.count == 0 {
-                    addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
+                    CoreDataHelper.addHabit(context: viewContext, uuid: (habits.first?.uuid)!, creationDate: Date(), name: (habits.first?.name)!, moreOrLess: (habits.first?.moreOrLess)!, target: (habits.first?.target)!, count: 0)
                 }
             }
         }
@@ -114,7 +122,10 @@ struct WelcomeView: View {
             .padding()
             Spacer()
             Button(
-                action: { fillInTheBlanks(); self.navStack.pop() },
+                action: {
+                    fillInTheBlanks();
+                    self.updateView = true
+                },
                 label: { Text("Start building good habits") }
             )
             .buttonStyle(SpecialButtonStyle(actionType: .confirm))
@@ -127,37 +138,12 @@ struct WelcomeView: View {
             //print("Testing if we get here on an iPad 2")
             if habits.count == 0 {
                 //print("Testing if we get here on an iPad 3")
-                addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
+                CoreDataHelper.addHabit(context: viewContext, uuid: (habits.first?.uuid)!, creationDate: Date(), name: (habits.first?.name)!, moreOrLess: (habits.first?.moreOrLess)!, target: (habits.first?.target)!, count: 0)
             }
         }
     }
     #endif
     
-    // Save habits to CoreData - duplicate of the ContentView func
-    public func saveContext() {
-      do {
-        try viewContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
-    }
-    
-    // Add a new habit - duplicate of the ContentView func
-    public func addHabit(uuid: UUID, creationDate: Date, name: String, moreOrLess: Bool,  target: Int64, count: Int64) {
-        // Create a newHabit object
-        let newHabit = Habit(context: viewContext)
-        
-        // Populate the attributes of the newHabit
-        newHabit.uuid = UUID()
-        newHabit.creationDate = Date()
-        newHabit.name = name
-        newHabit.moreOrLess = moreOrLess
-        newHabit.target = target
-        newHabit.count = count
-        
-        // Save all of the habits including the new one
-        saveContext()
-    }
     
     // Set default values for the first habit if the user does not enter them
     func fillInTheBlanks() {
@@ -176,7 +162,8 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView().environment(\.managedObjectContext,
+        WelcomeView(updateView: .constant(false), isPresented: .constant(false)).environment(\.managedObjectContext,
             PersistenceController.preview.container.viewContext)
     }
 }
+

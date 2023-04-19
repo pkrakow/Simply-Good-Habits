@@ -10,16 +10,19 @@
 import SwiftUI
 import CoreData
 import Combine
-import NavigationStack
+//import NavigationStack
 
 // Welcome View that shows the first time a user opens the app
 struct EditView: View {
+    @Binding var updateView: Bool
     // This managedObjectContext grants access to shared CoreData across views
     // But all of the data access functions have to be included in each view
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.presentationMode) var presentationMode
+
     
     // This will let me dismiss the view when the user hits the confirmation button
-    @EnvironmentObject var navStack: NavigationStack
+    //@EnvironmentObject var navStack: NavigationStack
     
     // Variables to hold the data collected in the form
     @State var uuid: UUID = UUID()
@@ -45,7 +48,7 @@ struct EditView: View {
     #if os(watchOS)
     @State var scrollAmount = 0.0
     var body: some View {
-        NavigationStackView {
+        NavigationView {
             VStack {
                 Text("Edit Your Habit")
                     .underline()
@@ -62,7 +65,7 @@ struct EditView: View {
                 )
                 .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
                 Button(
-                    action: { target = String(abs(Int64(round((scrollAmount/10))))); fillInTheBlanks(); self.navStack.pop() },
+                    action: { target = String(abs(Int64(round((scrollAmount/10))))); fillInTheBlanks(); presentationMode.wrappedValue.dismiss() },
                     label: { Text("OK, Done!") }
                 )
                 .buttonStyle(SpecialButtonStyle(actionType: .confirm))
@@ -72,11 +75,11 @@ struct EditView: View {
                 // Write the updated habit to CoreData
                 if (habitName == originalHabitName) {
                     // If the name didn't change, keep the original UUID and creation date
-                    addHabit(uuid: uuid, creationDate: creationDate, name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
+                    CoreDataHelper.addHabit(context: viewContext, uuid: uuid, creationDate: creationDate, name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
                     print("original \(target)")
                 } else {
                     // If the name changed, create a new UUID and creation date to mark the start of a new habit
-                    addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
+                    CoreDataHelper.addHabit(context: viewContext, uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
                     print("new \(target)")
                 }
             }
@@ -91,11 +94,6 @@ struct EditView: View {
                 fillInTheBlanks()
                 scrollAmount = (Double(target) ?? 0) * 10
                 
-                /*
-                // Note that the logic tying the habit target to the digital crown knob is brittle
-                print("appear after \(target)")
-                print("scrollAmount \(scrollAmount)")
-                */
             }
         }
     }
@@ -144,7 +142,7 @@ struct EditView: View {
             .padding()
             Spacer()
             Button(
-                action: { fillInTheBlanks(); self.navStack.pop() },
+                action: { fillInTheBlanks(); presentationMode.wrappedValue.dismiss() },
                 label: { Text("Go back to building good habits") }
             )
             .buttonStyle(SpecialButtonStyle(actionType: .confirm))
@@ -157,10 +155,10 @@ struct EditView: View {
             // Write the updated habit to CoreData
             if (habitName == originalHabitName) {
                 // If the name didn't change, keep the original UUID and creation date
-                addHabit(uuid: uuid, creationDate: creationDate, name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
+                CoreDataHelper.addHabit(context: viewContext, uuid: uuid, creationDate: creationDate, name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
             } else {
                 // If the name changed, create a new UUID and creation date to mark the start of a new habit
-                addHabit(uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
+                CoreDataHelper.addHabit(context: viewContext, uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: count)
             }
         }
         .onAppear() {
@@ -175,32 +173,7 @@ struct EditView: View {
         }
     }
     #endif
-    
-    // Save habits to CoreData - duplicate of the ContentView func
-    public func saveContext() {
-      do {
-        try viewContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
-    }
-    
-    // Add a new habit - duplicate of the ContentView func
-    public func addHabit(uuid: UUID, creationDate: Date, name: String, moreOrLess: Bool,  target: Int64, count: Int64) {
-        // Create a newHabit object
-        let newHabit = Habit(context: viewContext)
-        
-        // Populate the attributes of the newHabit
-        newHabit.uuid = UUID()
-        newHabit.creationDate = Date()
-        newHabit.name = name
-        newHabit.moreOrLess = moreOrLess
-        newHabit.target = target
-        newHabit.count = count
-        
-        // Save all of the habits including the new one
-        saveContext()
-    }
+
     
     // Set default values for the first habit if the user does not enter them
     func fillInTheBlanks() {
@@ -219,8 +192,9 @@ struct EditView: View {
 
 struct EditView_Previews: PreviewProvider {
     static var previews: some View {
-        EditView().environment(\.managedObjectContext,
-            PersistenceController.preview.container.viewContext)
+        EditView(updateView: .constant(false))
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
 

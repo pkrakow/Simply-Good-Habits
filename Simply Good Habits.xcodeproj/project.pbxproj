@@ -36,14 +36,14 @@
 		DAA3963226DAD11400F812C9 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3963126DAD11400F812C9 /* SessionDelegator.swift */; };
 		DAA3963326DAD11400F812C9 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3963126DAD11400F812C9 /* SessionDelegator.swift */; };
 		DAA3963426DAD11400F812C9 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3963126DAD11400F812C9 /* SessionDelegator.swift */; };
-		DAA3963626DBF1D900F812C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3963526DBF1D900F812C9 /* CoreDataManager.swift */; };
-		DAA3963726DBF1D900F812C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3963526DBF1D900F812C9 /* CoreDataManager.swift */; };
-		DAA3963826DBF1D900F812C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3963526DBF1D900F812C9 /* CoreDataManager.swift */; };
 		DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */; };
 		DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
 		DAB00FC425AB7BE10016E7DB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB00FC225AB7BE10016E7DB /* Persistence.swift */; };
 		DAC15E2D25D0E7550052B85D /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = DAC15E2C25D0E7550052B85D /* NavigationStack */; };
+		DAC4E16529EF702B004B62C3 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4E16429EF702B004B62C3 /* CoreDataHelper.swift */; };
+		DAC4E16629EF702B004B62C3 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4E16429EF702B004B62C3 /* CoreDataHelper.swift */; };
+		DAC4E16729EF702B004B62C3 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC4E16429EF702B004B62C3 /* CoreDataHelper.swift */; };
 		DADB2D1225BCCD9B006BBAA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */; };
 		DADB2D1325BCCD9B006BBAA4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */; };
 		DADB9CA1259AA722000C1ABB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB9CA0259AA722000C1ABB /* Tests_iOS.swift */; };
@@ -131,9 +131,9 @@
 		DA71E83625EC18D8009C14E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA71E83725EC18D8009C14E1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		DAA3963126DAD11400F812C9 /* SessionDelegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegator.swift; sourceTree = "<group>"; };
-		DAA3963526DBF1D900F812C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DAB00F3A25AB7B250016E7DB /* SimplyGoodHabits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimplyGoodHabits.xcdatamodel; sourceTree = "<group>"; };
 		DAB00FC225AB7BE10016E7DB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		DAC4E16429EF702B004B62C3 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simply_Good_HabitsApp.swift; sourceTree = "<group>"; };
 		DADB9C86259AA721000C1ABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 			children = (
 				DADB9C85259AA721000C1ABB /* Simply_Good_HabitsApp.swift */,
 				DADB9C86259AA721000C1ABB /* ContentView.swift */,
-				DAA3963526DBF1D900F812C9 /* CoreDataManager.swift */,
+				DAC4E16429EF702B004B62C3 /* CoreDataHelper.swift */,
 				DAA3963126DAD11400F812C9 /* SessionDelegator.swift */,
 				DADB2D1125BCCD9B006BBAA4 /* WelcomeView.swift */,
 				DA4D53AD25C8F87F00974930 /* EditView.swift */,
@@ -551,8 +551,8 @@
 				DA36AAF4261A324A00FEC043 /* EditView.swift in Sources */,
 				DA23981E2606A3530037199E /* Persistence.swift in Sources */,
 				DA71E83025EC18D7009C14E1 /* ComplicationController.swift in Sources */,
-				DAA3963826DBF1D900F812C9 /* CoreDataManager.swift in Sources */,
 				DA36AAF3261A324A00FEC043 /* WelcomeView.swift in Sources */,
+				DAC4E16729EF702B004B62C3 /* CoreDataHelper.swift in Sources */,
 				DA36AAEC261A308200FEC043 /* ContentView.swift in Sources */,
 				DA71E82E25EC18D7009C14E1 /* NotificationView.swift in Sources */,
 				DA23987D2606B0870037199E /* CustomButtonStyles.swift in Sources */,
@@ -570,11 +570,11 @@
 				DA32AAA725B4D5A4001D82DF /* PlaySound.swift in Sources */,
 				DADB2D1225BCCD9B006BBAA4 /* WelcomeView.swift in Sources */,
 				DADB9CAE259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
+				DAC4E16529EF702B004B62C3 /* CoreDataHelper.swift in Sources */,
 				DA4D53AE25C8F87F00974930 /* EditView.swift in Sources */,
 				DAF45688259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 				DAB00F3B25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,
 				DAB00FC325AB7BE10016E7DB /* Persistence.swift in Sources */,
-				DAA3963626DBF1D900F812C9 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,11 +588,11 @@
 				DA32AAA825B4D5A4001D82DF /* PlaySound.swift in Sources */,
 				DADB2D1325BCCD9B006BBAA4 /* WelcomeView.swift in Sources */,
 				DADB9CAF259AA722000C1ABB /* Simply_Good_HabitsApp.swift in Sources */,
+				DAC4E16629EF702B004B62C3 /* CoreDataHelper.swift in Sources */,
 				DA4D53AF25C8F87F00974930 /* EditView.swift in Sources */,
 				DAF45689259D7C970067345D /* CustomButtonStyles.swift in Sources */,
 				DAB00F3C25AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld in Sources */,
 				DAB00FC425AB7BE10016E7DB /* Persistence.swift in Sources */,
-				DAA3963726DBF1D900F812C9 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
