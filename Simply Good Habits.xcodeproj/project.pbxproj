@@ -24,6 +24,9 @@
 		DA36AAF4261A324A00FEC043 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA4D53AE25C8F87F00974930 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA4D53AF25C8F87F00974930 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
+		DA4E94242A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */; };
+		DA4E94252A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */; };
+		DA4E94262A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */; };
 		DA71E81C25EC18D7009C14E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA71E81B25EC18D7009C14E1 /* Assets.xcassets */; };
 		DA71E82325EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DA71E82C25EC18D7009C14E1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82B25EC18D7009C14E1 /* NotificationController.swift */; };
@@ -119,6 +122,8 @@
 		DA32AAAD25B4D5DC001D82DF /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bell-Tree.mp3"; sourceTree = "<group>"; };
 		DA4D53AD25C8F87F00974930 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ChatGPTPromptTemplate.rtf; sourceTree = "<group>"; };
+		DA4E94272A2C018E008D5AB7 /* ChatGPTPrompt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatGPTPrompt.json; sourceTree = "<group>"; };
 		DA71E81925EC18D7009C14E1 /* WatchSimplyGoodHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchSimplyGoodHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA71E81B25EC18D7009C14E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA71E81D25EC18D7009C14E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -262,6 +267,8 @@
 				DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */,
 				DA32AAA625B4D5A4001D82DF /* PlaySound.swift */,
 				DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */,
+				DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */,
+				DA4E94272A2C018E008D5AB7 /* ChatGPTPrompt.json */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -503,6 +510,7 @@
 				DA2397FB2606A1160037199E /* Assets.xcassets in Resources */,
 				DA71E83225EC18D8009C14E1 /* Assets.xcassets in Resources */,
 				DA2397FF2606A1160037199E /* Bell-Tree.mp3 in Resources */,
+				DA4E94262A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4E94242A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */,
 				DADB9CB2259AA722000C1ABB /* Assets.xcassets in Resources */,
 				DA32AAB525B4D704001D82DF /* Bell-Tree.mp3 in Resources */,
 			);
@@ -519,6 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4E94252A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */,
 				DADB9CB3259AA722000C1ABB /* Assets.xcassets in Resources */,
 				DA32AAB625B4D704001D82DF /* Bell-Tree.mp3 in Resources */,
 			);

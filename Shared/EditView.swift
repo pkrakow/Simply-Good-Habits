@@ -49,28 +49,34 @@ struct EditView: View {
     @State var scrollAmount = 0.0
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Edit Your Habit")
-                    .underline()
-                Text("Target: \(abs(Int64(round((scrollAmount/10))))) ->")
-                    .focusable(true)
-                    .digitalCrownRotation($scrollAmount)
-                Button(
-                    action: { moreOrLess = true; habitName = "Do More" },
-                    label: { Text("Do More") }
-                ).buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: moreOrLess))
-                Button(
-                    action: { moreOrLess = false; habitName = "Do Less" },
-                    label: { Text("Do Less") }
-                )
-                .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
-                Button(
-                    action: { target = String(abs(Int64(round((scrollAmount/10))))); fillInTheBlanks(); presentationMode.wrappedValue.dismiss() },
-                    label: { Text("OK, Done!") }
-                )
-                .buttonStyle(SpecialButtonStyle(actionType: .confirm))
+            GeometryReader { geometry in
+                VStack {
+                    Text("Edit Your Habit")
+                        .font(.system(size: geometry.size.width * 0.12))
+                        .underline()
+                    Text("Target: \(abs(Int64(round((scrollAmount/10))))) ->")
+                        .font(.system(size: geometry.size.width * 0.1))
+                        .focusable(true)
+                        .digitalCrownRotation($scrollAmount)
+                    Button(
+                        action: { moreOrLess = true; habitName = "Do More" },
+                        label: { Text("Do More") }
+                    )
+                    .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doMore, moreOrLess: moreOrLess))
+                    Button(
+                        action: { moreOrLess = false; habitName = "Do Less" },
+                        label: { Text("Do Less") }
+                    )
+                    .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .doLess, moreOrLess: moreOrLess))
+                    Button(
+                        action: { target = String(abs(Int64(round((scrollAmount/10))))); fillInTheBlanks(); presentationMode.wrappedValue.dismiss() },
+                        label: { Text("OK, Done!") }
+                    )
+                    .buttonStyle(SpecialButtonStyle(actionType: .confirm))
+                }
+                .padding(.horizontal, geometry.size.width * 0.05)
+                .padding(.vertical, geometry.size.height * 0.05)
             }
-            // When the view is dismissed, write the first Habit into CoreData
             .onDisappear() {
                 // Write the updated habit to CoreData
                 if (habitName == originalHabitName) {

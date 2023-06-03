@@ -29,6 +29,8 @@ func testDouble() -> Void {
 }
 
 struct DynamicRoundButtonStyle: ButtonStyle {
+    @ObservedObject var bgColorObservable: BackgroundColorObservable
+    
     var font: Font = .largeTitle
     var padding: CGFloat = 8
     var bgColor = Color.green
@@ -39,7 +41,8 @@ struct DynamicRoundButtonStyle: ButtonStyle {
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .font(font)
             .padding(padding)
-            .background(bgColor)
+            //.background(bgColor)
+            .background(bgColorObservable.bgColor)
             .foregroundColor(fgColor)
             .clipShape(Circle())
             .padding(.horizontal, 20)
@@ -53,6 +56,13 @@ struct DynamicRoundButtonStyle: ButtonStyle {
                 testSingle()
             }
             */
+    }
+}
+
+class BackgroundColorObservable: ObservableObject {
+    @Published var bgColor: Color
+    init(bgColor: Color) {
+        self.bgColor = bgColor
     }
 }
 
@@ -141,7 +151,8 @@ struct DoMoreDoLessUndoButtonStyle: ButtonStyle {
             }
             configuration.label
         }
-            .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 6)
             .background(
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                     .fill(actionType.bgColor)

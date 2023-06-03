@@ -124,6 +124,7 @@ struct WelcomeView: View {
             Button(
                 action: {
                     fillInTheBlanks();
+                    self.isPresented = false
                     self.updateView = true
                 },
                 label: { Text("Start building good habits") }

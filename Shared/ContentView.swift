@@ -11,7 +11,7 @@
 
 import SwiftUI
 import CoreData
-import NavigationStack
+//import NavigationStack
 import WatchConnectivity
 
 
@@ -21,6 +21,7 @@ struct ContentView: View {
     @State private var updateView: Bool = false
     @State private var isWelcomeViewPresented: Bool = false
     @State private var isEditingViewPresented: Bool = false
+    @StateObject private var buttonColorObservable = BackgroundColorObservable(bgColor: Color.gray)
     @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
     
     // Retrieve stored habits from CoreData
@@ -55,7 +56,8 @@ struct ContentView: View {
                         action: { incrementHabitCount() },
                         label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
                     )
-                    .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
+                    //.buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
+                    .buttonStyle(DynamicRoundButtonStyle(bgColorObservable: buttonColorObservable))
                     .shadow(color: .dropShadow, radius: 2, x: 2, y: 2)
                     .shadow(color: .dropLight, radius: 2, x: -2, y: -2)
                     .scaledToFill()
@@ -96,10 +98,9 @@ struct ContentView: View {
             }
         }
     }
+    
     #else
-
-
-    // iOS & MacOS version of ContentView
+    // iOS version of ContentView
     var body: some View {
         NavigationView {
             VStack {
@@ -117,10 +118,13 @@ struct ContentView: View {
                     action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
                     label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
                 )
-                .buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
+                //.buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
+                .buttonStyle(DynamicRoundButtonStyle(bgColorObservable: buttonColorObservable))
                 .font(.largeTitle)
                 .shadow(color: .dropShadow, radius: 15, x: 10, y: 10)
                 .shadow(color: .dropLight, radius: 15, x: -10, y: -10)
+                
+                
                 HStack {
                     Text("Target \(Text(habits.first?.moreOrLess ?? true ? ">=" : "<=")) \(habits.first?.target ?? 0)")
                     Spacer()
@@ -131,9 +135,8 @@ struct ContentView: View {
                     .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .undo))
                 }.padding()
             }
-            .onChange(of: updateView) { _ in
-                print("UpdateView changed")
-                // Add any other code you need to execute when updateView changes
+            .onChange(of: habits.first?.count) { _ in
+                buttonColorObservable.bgColor = updateButtonColor()
             }
         }
         .environment(\.managedObjectContext, viewContext)
@@ -194,21 +197,27 @@ struct ContentView: View {
     
     // Increase the habit count by 1
     func incrementHabitCount() -> Void {
+        print("incrementHabitCount Called")
         habits.first?.count += 1
         CoreDataHelper.saveContext(context: viewContext)
+        buttonColorObservable.bgColor = updateButtonColor()
     }
     
     // Decrease the habit count by 1
     func decrementHabitCount() -> Void {
+        print("decrementHabitCountCalled")
         if habits.first?.count ?? 0 > 0 {
             habits.first?.count -= 1
             CoreDataHelper.saveContext(context: viewContext)
+            buttonColorObservable.bgColor = updateButtonColor()
         }
     }
     
     // Change the button color to reflect how the habit.count relates to the habit.target
     func updateButtonColor() -> Color {
+        print("updateButtonColor Called")
         let updateCount = Double(habits.first?.count ?? 0)
+        print("updateCount = ", updateCount)
         var updateTarget = Double(habits.first?.target ?? 0)
         // Safety net to protect against NaN scenarios and negative targets
         if (updateTarget < 0.001) {

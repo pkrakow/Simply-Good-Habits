@@ -1,0 +1,79 @@
+{
+  "ProjectName": "Simply Good Habits",
+  "Platform": ["iOS", "WatchOS", "macOS"],
+  "Language": "Swift 5",
+  "XcodeVersion": "13",
+  "iOS_SDK_Version": "15",
+  "DependencyManagement": "Unknown",
+  "MajorDependencies": ["CoreData", "WatchConnectivity", "Combine", "SwiftUI", "AVFoundation"],
+  "Architecture": "SwiftUI with CoreData",
+  "DesignPrinciples": ["Data Persistence with CoreData", "Use of Watch Connectivity for sending data between iOS and watchOS", "Use of Combine for handling asynchronous events", "Use of Custom Button Styles for a tailored user interface", "Audio feedback using AVFoundation"],
+  "KeyFeatures": [
+    "Habit tracking: Allows users to increment and decrement habit counts.",
+    "Dynamic UI: Changes button styles and responds to changes in application state. Custom buttons defined for different actions such as 'do more', 'do less', 'undo', 'confirm', 'cancel', and 'delete'.",
+    "WatchOS support: The application has a separate UI implementation for watchOS.",
+    "New day detection: Checks if it's a new day to start a new habit entry.",
+    "Watch Connectivity: Receive messages from the Apple Watch, which contain a habit count.",
+    "App Initialization: Allows users to initialize the app with a custom habit when they open it for the first time.",
+    "Haptic Feedback: Provides haptic feedback to the user based on various actions and states. This includes selection changes, successful actions, warnings, and errors.",
+    "Audio Feedback: Plays different sound effects for various user interactions.",
+    "Data Persistence: The app uses CoreData for persisting habit data across sessions."
+  ],
+  "ProjectStructure": [
+    "Simply_Good_HabitsApp: This is the entry point of the app. It creates a new ContentView and provides it with an environment that includes a managedObjectContext from a shared PersistenceController.",
+    "ContentView: This is the main view of the application where users can interact with their habits. It has different implementations for iOS and watchOS.",
+    "PersistenceController: Handles CoreData related tasks and provides a managedObjectContext. It creates an NSPersistentContainer for the app, and has an option to run in-memory for testing purposes.",
+    "Habit: The primary data entity for the application, stored in CoreData.",
+    "CoreDataHelper: Contains helper functions for performing basic operations on the CoreData database.",
+    "SessionDelegator: Acts as a delegate for the Watch Connectivity session. Receives messages from the Apple Watch and publishes them using a PassthroughSubject.",
+    "WelcomeView: The initial view that users see when they open the app for the first time. This view is designed to help users initialize the app to meet their specific needs.",
+    "Haptics: Provides haptic feedback functions that are used throughout the app. These include impact, selection, success, warning, and error feedbacks.",
+    "CustomButtonStyles: Defines custom styles for different types of buttons used throughout the app, including DynamicRoundButtonStyle, DoMoreDoLessUndoButtonStyle, and SpecialButtonStyle.",
+    "PlaySound: Contains functions to play different sounds for user interactions using AVFoundation."
+  ],
+  "KeyFunctions": [
+      "saveContext(context:): Saves changes to the provided managed object context.",
+      "addHabit(context: uuid: creationDate: name: moreOrLess: target: count:): Creates a new Habit entity in the given context.",
+      "deleteHabit(context: habit:): Deletes the provided Habit entity from the given context.",
+      "session(_: activationDidCompleteWith: error:): Function required by WCSessionDelegate protocol. Currently does not include any code.",
+      "session(_: didReceiveMessage:): Receives a message from the Watch Connectivity session and updates a PassthroughSubject with the received count.",
+      "sessionDidBecomeInactive(_:): Logs when the Watch Connectivity session becomes inactive.",
+      "sessionDidDeactivate(_:): Reactivates the session after switching to a new watch.",
+      "sessionWatchStateDidChange(_:): Logs when the watch state changes.",
+      "fillInTheBlanks(): Sets default values for the first habit if the user does not enter them.",
+      "impactPressed(_:): Generates an impact feedback.",
+      "selectionPressed(_:): Generates a selection change feedback.",
+      "successPressed(_:): Generates a success feedback.",
+      "warningPressed(_:): Generates a warning feedback.",
+      "errorPressed(_:): Generates an error feedback."
+    ],
+  "Challenges": [
+      {
+          "title": "Update to recommended settings",
+          "location": "/Users/paul/Documents/Simply-Good-Habits/Simply Good Habits.xcodeproj",
+          "description": "Xcode project settings might be outdated and need to be updated to the latest recommended settings."
+      },
+      {
+          "title": "Unassigned child in image set 'iTunesArtwork'",
+          "location": "/Users/paul/Documents/Simply-Good-Habits/Shared/Assets.xcassets/iTunesArtwork.imageset",
+          "description": "The image set 'iTunesArtwork' has an unassigned child. This could be because a required image is missing or not linked correctly."
+      },
+      {
+          "title": "Missing file 'ItunesArtwork@2x.png'",
+          "location": "/Users/paul/Documents/Simply-Good-Habits/Shared/Assets.xcassets/iTunesArtwork.imageset",
+          "description": "The file 'ItunesArtwork@2x.png' for the image set 'iTunesArtwork' does not exist. This could cause issues when the app tries to load this image."
+      },
+      {
+          "title": "Button and Target value not updating in ContentView",
+          "description": "After the WelcomeView onboarding flow, the button and target value in the ContentView do not represent the target that was set during the onboarding. Additionally, the button does not update when pressed, although the PlaySound does trigger."
+      },
+      {
+          "title": "Undo button not changing app state",
+          "description": "The Undo button in ContentView does not change the state of the app, though it visually indicates that the button has been pressed."
+      },
+      {
+          "title": "Habit name does not navigate to EditView",
+          "description": "Clicking on the name of the habit at the top of ContentView does not navigate to the EditView as expected."
+      }
+  ]
+  }
