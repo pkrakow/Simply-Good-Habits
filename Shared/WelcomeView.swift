@@ -10,7 +10,6 @@
 import SwiftUI
 import CoreData
 import Combine
-//import NavigationStack
 
 // Welcome View that shows the first time a user opens the app
 struct WelcomeView: View {
@@ -65,6 +64,11 @@ struct WelcomeView: View {
                     fillInTheBlanks();
                     self.isPresented = false
                     self.updateView = true
+                    
+                    // Add the habit and then navigate
+                    CoreDataHelper.addHabit(context: viewContext, uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
+                    print("[WatchOS] Habit added.")  // debug
+                    
                 }) {
                     Text("Get Started")
                 }
@@ -73,8 +77,16 @@ struct WelcomeView: View {
             // When the view is dismissed, write the first Habit into CoreData
             .onDisappear() {
                 if habits.count == 0 {
+                    print("[WatchOS] Adding habit...")  // debug
+                    CoreDataHelper.addHabit(context: viewContext, uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
+                    print("[WatchOS] Habit added.")  // debug
+                }
+                /*
+                if habits.count == 0 {
                     CoreDataHelper.addHabit(context: viewContext, uuid: (habits.first?.uuid)!, creationDate: Date(), name: (habits.first?.name)!, moreOrLess: (habits.first?.moreOrLess)!, target: (habits.first?.target)!, count: 0)
                 }
+                */
+
             }
         }
     }
@@ -135,11 +147,20 @@ struct WelcomeView: View {
         .navigationTitle("")
         .navigationBarHidden(true)
         // When the view is dismissed, write the first Habit into CoreData
-        .onDisappear() {
+        /*
+         .onDisappear() {
             //print("Testing if we get here on an iPad 2")
             if habits.count == 0 {
                 //print("Testing if we get here on an iPad 3")
                 CoreDataHelper.addHabit(context: viewContext, uuid: (habits.first?.uuid)!, creationDate: Date(), name: (habits.first?.name)!, moreOrLess: (habits.first?.moreOrLess)!, target: (habits.first?.target)!, count: 0)
+            }
+        }
+         */
+        .onDisappear() {
+            if habits.count == 0 {
+                print("[iOS] Adding habit...")  // debug
+                CoreDataHelper.addHabit(context: viewContext, uuid: UUID(), creationDate: Date(), name: habitName, moreOrLess: moreOrLess, target: Int64(target) ?? 0, count: 0)
+                print("[iOS] Habit added.")  // debug
             }
         }
     }

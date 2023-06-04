@@ -11,7 +11,6 @@
 
 import SwiftUI
 import CoreData
-//import NavigationStack
 import WatchConnectivity
 
 
@@ -32,8 +31,9 @@ struct ContentView: View {
             // Do not change this
             NSSortDescriptor(keyPath: \Habit.creationDate, ascending: false)
         ]
-    ) var habits: FetchedResults<Habit>
-    
+    )
+    var habits: FetchedResults<Habit>
+
     #if os(watchOS)
     // watchOS version of ContentView
     var body: some View {
@@ -72,6 +72,10 @@ struct ContentView: View {
                 .offset(y: 20) // Increase the y-axis offset
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .edgesIgnoringSafeArea(.all)
+                .onChange(of: habits.first?.count) { newValue in
+                    print("Habit count changed to: \(newValue ?? 0)")
+                    buttonColorObservable.bgColor = updateButtonColor()
+                }
             }
         }
         .environment(\.managedObjectContext, viewContext)
@@ -96,6 +100,15 @@ struct ContentView: View {
             if newDayDetector() {
                 startNewDay()
             }
+            
+            // Ensure updateButtonColor is called once the first habit becomes available.
+            DispatchQueue.main.async {
+                if habits.first(where: { _ in true }) != nil {
+                    print("Trying to debug why the button is grey on first load")
+                    buttonColorObservable.bgColor = updateButtonColor()
+                }
+            }
+            
         }
     }
     
@@ -115,7 +128,7 @@ struct ContentView: View {
                 WelcomeView(updateView: $updateView, isPresented: $isWelcomeViewPresented)
             }
                 Button(
-                    action: { incrementHabitCount(); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
+                    action: { incrementHabitCount(); print("Button was pressed, new habit count is: \(habits.first?.count ?? 0)"); successPressed(impact); playSound(sound: "Bell-Tree", type: "mp3") },
                     label: { Text("\((habits.first?.moreOrLess ?? true ? String("\((habits.first?.count ?? 0))") : String("\((habits.first?.target ?? 0) - (habits.first?.count ?? 0))") ))") }  // Advanced version that counts down for doLess
                 )
                 //.buttonStyle(DynamicRoundButtonStyle(bgColor: updateButtonColor()))
@@ -135,7 +148,9 @@ struct ContentView: View {
                     .buttonStyle(DoMoreDoLessUndoButtonStyle(actionType: .undo))
                 }.padding()
             }
-            .onChange(of: habits.first?.count) { _ in
+            //.onChange(of: habits.first?.count) { _ in
+            .onChange(of: habits.first?.count) { newValue in
+                print("Habit count changed to: \(newValue ?? 0)")
                 buttonColorObservable.bgColor = updateButtonColor()
             }
         }
@@ -147,6 +162,7 @@ struct ContentView: View {
             // Check if this is the first time the app has been used
             if !hasLaunchedBefore && habits.count == 0 {
                 print("First Use")
+                print("Habit first object: \(habits.first)")
                 // Create the first Habit entity in CoreData
                 // Navigate to the WelcomeView to let the user set up the first good habit
                 self.isWelcomeViewPresented = true
@@ -198,10 +214,23 @@ struct ContentView: View {
     // Increase the habit count by 1
     func incrementHabitCount() -> Void {
         print("incrementHabitCount Called")
-        habits.first?.count += 1
-        CoreDataHelper.saveContext(context: viewContext)
-        buttonColorObservable.bgColor = updateButtonColor()
+
+        print("Total habit count: \(habits.count)")
+        
+        if let firstHabit = habits.first {
+            print("Old habit count is: \(firstHabit.count)")
+            print("Habit object ID before incrementing: \(firstHabit.objectID)")
+            firstHabit.count += 1
+            print("New habit count is: \(firstHabit.count)")
+            print("Habit object ID after incrementing: \(firstHabit.objectID)")
+            CoreDataHelper.saveContext(context: viewContext)
+            buttonColorObservable.bgColor = updateButtonColor()
+        } else {
+            print("No habit found.")
+        }
     }
+
+
     
     // Decrease the habit count by 1
     func decrementHabitCount() -> Void {

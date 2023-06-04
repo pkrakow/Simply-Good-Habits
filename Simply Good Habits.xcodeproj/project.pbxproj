@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,11 +24,7 @@
 		DA36AAF4261A324A00FEC043 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA4D53AE25C8F87F00974930 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
 		DA4D53AF25C8F87F00974930 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D53AD25C8F87F00974930 /* EditView.swift */; };
-		DA4E94242A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */; };
-		DA4E94252A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */; };
-		DA4E94262A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */; };
 		DA71E81C25EC18D7009C14E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA71E81B25EC18D7009C14E1 /* Assets.xcassets */; };
-		DA71E82325EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DA71E82C25EC18D7009C14E1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82B25EC18D7009C14E1 /* NotificationController.swift */; };
 		DA71E82E25EC18D7009C14E1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82D25EC18D7009C14E1 /* NotificationView.swift */; };
 		DA71E83025EC18D7009C14E1 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */; };
@@ -62,13 +58,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DA71E82425EC18D7009C14E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DADB9C80259AA721000C1ABB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DA71E82125EC18D7009C14E1;
-			remoteInfo = "WatchSimplyGoodHabits Extension";
-		};
 		DA71E83825EC18D8009C14E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DADB9C80259AA721000C1ABB /* Project object */;
@@ -104,17 +93,6 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA71E83E25EC18D8009C14E1 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				DA71E82325EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -122,12 +100,10 @@
 		DA32AAAD25B4D5DC001D82DF /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bell-Tree.mp3"; sourceTree = "<group>"; };
 		DA4D53AD25C8F87F00974930 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
-		DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ChatGPTPromptTemplate.rtf; sourceTree = "<group>"; };
 		DA4E94272A2C018E008D5AB7 /* ChatGPTPrompt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatGPTPrompt.json; sourceTree = "<group>"; };
 		DA71E81925EC18D7009C14E1 /* WatchSimplyGoodHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchSimplyGoodHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA71E81B25EC18D7009C14E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA71E81D25EC18D7009C14E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchSimplyGoodHabits Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA71E82B25EC18D7009C14E1 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		DA71E82D25EC18D7009C14E1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		DA71E82F25EC18D7009C14E1 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -267,7 +243,6 @@
 				DAB00F3925AB7B250016E7DB /* Simply_Good_Habits.xcdatamodeld */,
 				DA32AAA625B4D5A4001D82DF /* PlaySound.swift */,
 				DA32AAB425B4D704001D82DF /* Bell-Tree.mp3 */,
-				DA4E94232A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf */,
 				DA4E94272A2C018E008D5AB7 /* ChatGPTPrompt.json */,
 			);
 			path = Shared;
@@ -281,7 +256,6 @@
 				DADB9C9C259AA722000C1ABB /* Tests iOS.xctest */,
 				DADB9CA7259AA722000C1ABB /* Tests macOS.xctest */,
 				DA71E81925EC18D7009C14E1 /* WatchSimplyGoodHabits.app */,
-				DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -329,37 +303,20 @@
 			buildConfigurationList = DA71E84225EC18D8009C14E1 /* Build configuration list for PBXNativeTarget "WatchSimplyGoodHabits" */;
 			buildPhases = (
 				DA71E81725EC18D7009C14E1 /* Resources */,
-				DA71E83E25EC18D8009C14E1 /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DA71E82525EC18D7009C14E1 /* PBXTargetDependency */,
-			);
-			name = WatchSimplyGoodHabits;
-			productName = WatchSimplyGoodHabits;
-			productReference = DA71E81925EC18D7009C14E1 /* WatchSimplyGoodHabits.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		DA71E82125EC18D7009C14E1 /* WatchSimplyGoodHabits Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA71E84125EC18D8009C14E1 /* Build configuration list for PBXNativeTarget "WatchSimplyGoodHabits Extension" */;
-			buildPhases = (
 				DA71E81E25EC18D7009C14E1 /* Sources */,
 				DA71E81F25EC18D7009C14E1 /* Frameworks */,
-				DA71E82025EC18D7009C14E1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "WatchSimplyGoodHabits Extension";
+			name = WatchSimplyGoodHabits;
 			packageProductDependencies = (
-				DAA0532626193A31003C3465 /* NavigationStack */,
+				DA4E94282A2C0712008D5AB7 /* NavigationStack */,
 			);
-			productName = "WatchSimplyGoodHabits Extension";
-			productReference = DA71E82225EC18D7009C14E1 /* WatchSimplyGoodHabits Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
+			productName = WatchSimplyGoodHabits;
+			productReference = DA71E81925EC18D7009C14E1 /* WatchSimplyGoodHabits.app */;
+			productType = "com.apple.product-type.application";
 		};
 		DADB9C8B259AA722000C1ABB /* Simply Good Habits (iOS) */ = {
 			isa = PBXNativeTarget;
@@ -442,13 +399,11 @@
 		DADB9C80259AA721000C1ABB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					DA71E81825EC18D7009C14E1 = {
-						CreatedOnToolsVersion = 12.4;
-					};
-					DA71E82125EC18D7009C14E1 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 					DADB9C8B259AA722000C1ABB = {
@@ -488,7 +443,6 @@
 				DADB9C9B259AA722000C1ABB /* Tests iOS */,
 				DADB9CA6259AA722000C1ABB /* Tests macOS */,
 				DA71E81825EC18D7009C14E1 /* WatchSimplyGoodHabits */,
-				DA71E82125EC18D7009C14E1 /* WatchSimplyGoodHabits Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -498,19 +452,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA71E81C25EC18D7009C14E1 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DA71E82025EC18D7009C14E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 				DA71E83525EC18D8009C14E1 /* Preview Assets.xcassets in Resources */,
 				DA2397FB2606A1160037199E /* Assets.xcassets in Resources */,
 				DA71E83225EC18D8009C14E1 /* Assets.xcassets in Resources */,
 				DA2397FF2606A1160037199E /* Bell-Tree.mp3 in Resources */,
-				DA4E94262A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */,
+				DA71E81C25EC18D7009C14E1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +464,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA4E94242A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */,
 				DADB9CB2259AA722000C1ABB /* Assets.xcassets in Resources */,
 				DA32AAB525B4D704001D82DF /* Bell-Tree.mp3 in Resources */,
 			);
@@ -528,7 +473,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA4E94252A2BF497008D5AB7 /* ChatGPTPromptTemplate.rtf in Resources */,
 				DADB9CB3259AA722000C1ABB /* Assets.xcassets in Resources */,
 				DA32AAB625B4D704001D82DF /* Bell-Tree.mp3 in Resources */,
 			);
@@ -625,11 +569,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DA71E82525EC18D7009C14E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DA71E82125EC18D7009C14E1 /* WatchSimplyGoodHabits Extension */;
-			targetProxy = DA71E82425EC18D7009C14E1 /* PBXContainerItemProxy */;
-		};
 		DA71E83925EC18D8009C14E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DA71E81825EC18D7009C14E1 /* WatchSimplyGoodHabits */;
@@ -653,12 +592,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
-				IBSC_MODULE = WatchSimplyGoodHabits_Extension;
 				INFOPLIST_FILE = WatchSimplyGoodHabits/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -675,68 +618,19 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
-				IBSC_MODULE = WatchSimplyGoodHabits_Extension;
 				INFOPLIST_FILE = WatchSimplyGoodHabits/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 7.2;
-			};
-			name = Release;
-		};
-		DA71E83F25EC18D8009C14E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchSimplyGoodHabits Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = 35L6R57Z7R;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "WatchSimplyGoodHabits Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.2;
-			};
-			name = Debug;
-		};
-		DA71E84025EC18D8009C14E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchSimplyGoodHabits Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = 35L6R57Z7R;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "WatchSimplyGoodHabits Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pkrakow.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -780,6 +674,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -839,6 +734,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -916,6 +812,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -943,6 +840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1011,6 +909,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1033,6 +932,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 35L6R57Z7R;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1052,15 +952,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DA71E84125EC18D8009C14E1 /* Build configuration list for PBXNativeTarget "WatchSimplyGoodHabits Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DA71E83F25EC18D8009C14E1 /* Debug */,
-				DA71E84025EC18D8009C14E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		DA71E84225EC18D8009C14E1 /* Build configuration list for PBXNativeTarget "WatchSimplyGoodHabits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1129,6 +1020,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA4E94282A2C0712008D5AB7 /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAC15E2B25D0E7550052B85D /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
 		DAA0532626193A31003C3465 /* NavigationStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DAC15E2B25D0E7550052B85D /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;

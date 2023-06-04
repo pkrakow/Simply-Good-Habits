@@ -10,7 +10,6 @@
 import SwiftUI
 import CoreData
 import Combine
-//import NavigationStack
 
 // Welcome View that shows the first time a user opens the app
 struct EditView: View {

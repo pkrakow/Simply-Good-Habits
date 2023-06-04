@@ -49,11 +49,6 @@
     ],
   "Challenges": [
       {
-          "title": "Update to recommended settings",
-          "location": "/Users/paul/Documents/Simply-Good-Habits/Simply Good Habits.xcodeproj",
-          "description": "Xcode project settings might be outdated and need to be updated to the latest recommended settings."
-      },
-      {
           "title": "Unassigned child in image set 'iTunesArtwork'",
           "location": "/Users/paul/Documents/Simply-Good-Habits/Shared/Assets.xcassets/iTunesArtwork.imageset",
           "description": "The image set 'iTunesArtwork' has an unassigned child. This could be because a required image is missing or not linked correctly."
@@ -64,16 +59,8 @@
           "description": "The file 'ItunesArtwork@2x.png' for the image set 'iTunesArtwork' does not exist. This could cause issues when the app tries to load this image."
       },
       {
-          "title": "Button and Target value not updating in ContentView",
-          "description": "After the WelcomeView onboarding flow, the button and target value in the ContentView do not represent the target that was set during the onboarding. Additionally, the button does not update when pressed, although the PlaySound does trigger."
-      },
-      {
-          "title": "Undo button not changing app state",
-          "description": "The Undo button in ContentView does not change the state of the app, though it visually indicates that the button has been pressed."
-      },
-      {
-          "title": "Habit name does not navigate to EditView",
-          "description": "Clicking on the name of the habit at the top of ContentView does not navigate to the EditView as expected."
+          "title": "Habit name does not navigate to EditView in iOS",
+          "description": "Clicking on the name of the habit at the top of ContentView in iOS does not navigate to the EditView as expected."
       }
   ]
   }
