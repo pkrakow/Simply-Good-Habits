@@ -120,9 +120,16 @@ struct ContentView: View {
                 Text("Simply Good Habits")
                     .font(.largeTitle)
                     .underline()
-                Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue)
+               /* Text(habits.first?.name ?? "First Good Habit").foregroundColor(Color.blue)
                     .onTapGesture {
                         selection = "Edit"
+                    } */
+                    NavigationLink(destination: EditView(updateView: $updateView), tag: "Edit", selection: $selection) {
+                        Text(habits.first?.name ?? "First Good Habit")
+                            .foregroundColor(Color.blue)
+                            .onTapGesture {
+                                selection = "Edit"
+                            }
                     }
                     .sheet(isPresented: $isWelcomeViewPresented) {
                 WelcomeView(updateView: $updateView, isPresented: $isWelcomeViewPresented)
