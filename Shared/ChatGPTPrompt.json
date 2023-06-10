@@ -49,16 +49,6 @@
     ],
   "Challenges": [
       {
-          "title": "Unassigned child in image set 'iTunesArtwork'",
-          "location": "/Users/paul/Documents/Simply-Good-Habits/Shared/Assets.xcassets/iTunesArtwork.imageset",
-          "description": "The image set 'iTunesArtwork' has an unassigned child. This could be because a required image is missing or not linked correctly."
-      },
-      {
-          "title": "Missing file 'ItunesArtwork@2x.png'",
-          "location": "/Users/paul/Documents/Simply-Good-Habits/Shared/Assets.xcassets/iTunesArtwork.imageset",
-          "description": "The file 'ItunesArtwork@2x.png' for the image set 'iTunesArtwork' does not exist. This could cause issues when the app tries to load this image."
-      },
-      {
           "title": "Habit name does not navigate to EditView in iOS",
           "description": "Clicking on the name of the habit at the top of ContentView in iOS does not navigate to the EditView as expected."
       }

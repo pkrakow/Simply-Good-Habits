@@ -205,6 +205,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "Simply Good Habits Icon 66x66.png",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -228,6 +229,7 @@
       "subtype" : "40mm"
     },
     {
+      "filename" : "Simply Good Habits Icon 92x92.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -243,6 +245,7 @@
       "subtype" : "44mm"
     },
     {
+      "filename" : "Simply Good Habits Icon 102x102.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -250,6 +253,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "Simply Good Habits Icon 108x108.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -281,6 +285,7 @@
       "subtype" : "44mm"
     },
     {
+      "filename" : "Simply Good Habits Icon 234x234.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -288,6 +293,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "Simply Good Habits Icon 258x258.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
